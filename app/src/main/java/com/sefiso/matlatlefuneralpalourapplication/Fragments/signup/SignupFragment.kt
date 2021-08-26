@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.sefiso.matlatlefuneralpalourapplication.*
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {

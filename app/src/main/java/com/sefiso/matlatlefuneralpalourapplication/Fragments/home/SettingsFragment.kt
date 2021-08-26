@@ -1,11 +1,11 @@
-package com.sefiso.matlatlefuneralpalourapplication
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentMessagesBinding
+import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {

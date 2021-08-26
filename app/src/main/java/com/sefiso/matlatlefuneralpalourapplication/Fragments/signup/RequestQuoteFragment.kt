@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.signup
 
 import android.content.Intent
 import android.net.Uri
@@ -16,8 +16,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.sefiso.matlatlefuneralpalourapplication.*
 import com.sefiso.matlatlefuneralpalourapplication.Fragments.login.LoginFragment
-import com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.*
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentRequestQuoteBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 class RequestQuoteFragment : Fragment() {
 
     private lateinit var binding: FragmentRequestQuoteBinding
-    //private lateinit var loginAdapter: LoginAdapter
     private lateinit var pagerAdapter: PagerAdapter
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
@@ -83,7 +82,7 @@ class RequestQuoteFragment : Fragment() {
 
     //This function will open dialer with the tel number specified already dialed
     private fun startCall() {
-        var intent = Intent(Intent.ACTION_DIAL);
+        val intent = Intent(Intent.ACTION_DIAL);
         intent.data = Uri.parse("tel:0723377446")
         startActivity(intent)
     }

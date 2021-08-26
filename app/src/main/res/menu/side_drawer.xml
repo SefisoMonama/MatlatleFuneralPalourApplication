@@ -27,19 +27,10 @@
             android:id="@+id/contactUs"
             android:icon="@drawable/ic_contactus"
             android:title="Contact Us" />
+
+        <item
+            android:id="@+id/helpItem"
+            android:icon="@drawable/ic__help"
+            android:title="Help" />
     </group>
-
-    <item android:title="Login/Sign-in">
-        <menu>
-            <item
-                android:id="@+id/signIn"
-                android:icon="@drawable/ic_signin"
-                android:title="SignIn" />
-            <item
-                android:id="@+id/login"
-                android:icon="@drawable/ic_login"
-                android:title="Login" />
-
-        </menu>
-    </item>
 </menu>

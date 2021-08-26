@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/homeScreenFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"
+        app:startDestination="@id/action_loginFragment_to_registrationFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.login.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_createUsernamePasswordFragment"
+            app:destination="@id/createUsernamePasswordFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_requestQuoteFragment"
+            app:destination="@id/requestQuoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUsernamePasswordFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.CreateUsernamePasswordFragment"
+        android:label="fragment_create_username_password"
+        tools:layout="@layout/fragment_create_username_password" >
+        <action
+            android:id="@+id/action_createUsernamePasswordFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_createUsernamePasswordFragment_to_oneTimePinFragment"
+            app:destination="@id/oneTimePinFragment" />
+        <action
+            android:id="@+id/action_createUsernamePasswordFragment_to_registrationFragment2"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_createUsernamePasswordFragment_to_registrationFragment3"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/oneTimePinFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.OneTimePinFragment"
+        android:label="fragment_one_time_pin"
+        tools:layout="@layout/fragment_one_time_pin" >
+        <action
+            android:id="@+id/action_oneTimePinFragment_to_createUsernamePasswordFragment"
+            app:destination="@id/createUsernamePasswordFragment" />
+        <action
+            android:id="@+id/action_oneTimePinFragment_to_processCompletedFragment"
+            app:destination="@id/processCompletedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/processCompletedFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.ProcessCompletedFragment"
+        android:label="fragment_process_completed"
+        tools:layout="@layout/fragment_process_completed" >
+        <action
+            android:id="@+id/action_processCompletedFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/requestQuoteFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.RequestQuoteFragment"
+        android:label="fragment_request_quote"
+        tools:layout="@layout/fragment_request_quote"
+        app:startDestination="@id/action_requestQuoteFragment_to_loginFragment">
+        <action
+            android:id="@+id/action_requestQuoteFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_requestQuoteFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_requestQuoteFragment_self"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_requestQuoteFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/claimsFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.ClaimsFragment"
+        android:label="fragment_claims"
+        tools:layout="@layout/fragment_claims" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MessagesFragment"
+        android:label="fragment_messages"
+        tools:layout="@layout/fragment_messages" />
+    <dialog
+        android:id="@+id/moreFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/action_moreFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_requestQuoteFragment"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_requestQuoteFragment2"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_requestQuoteFragment3"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_requestQuoteFragment4"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_requestQuoteFragment5"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_requestQuoteFragment6"
+            app:destination="@id/requestQuoteFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.HomeScreenFragment"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_moreFragment2"
+            app:destination="@id/moreFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_messagesFragment"
+            app:destination="@id/messagesFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_claimsFragment"
+            app:destination="@id/claimsFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_moreFragment"
+            app:destination="@id/moreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_signupFragment_to_registrationFragment3"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_signupFragment_to_registrationFragment4"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+</navigation>

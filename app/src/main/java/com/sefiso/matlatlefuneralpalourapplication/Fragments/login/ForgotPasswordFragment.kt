@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication.Fragments
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.login
 
 import android.os.Bundle
 import android.text.SpannableString
@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentForgotPasswordBinding

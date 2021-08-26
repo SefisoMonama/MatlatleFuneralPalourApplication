@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication.Fragments
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
-import com.sefiso.matlatlefuneralpalourapplication.ClaimsFragment
-import com.sefiso.matlatlefuneralpalourapplication.MessagesFragment
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentHomeScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,8 +54,13 @@ class HomeScreenFragment : Fragment() {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
+        //open more fragment (bottomNavigationSheet)
+        binding.openLoginSingUpImageView.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_moreFragment)
+        }
+
         //add onClickListener on menuIcon to open/move to proper destination
-        binding.bottomNavigationView.setOnNavigationItemReselectedListener {
+        /**binding.bottomNavigationView.setOnNavigationItemReselectedListener {
             when (it.itemId) {
                 R.id.moreItemsMenu -> binding.drawerLayout.openDrawer(GravityCompat.END)
                 //R.id.menuProfile -> findNavController().navigate(R.id.action_homeScreenFragment_to_profileFragment)
@@ -74,7 +77,7 @@ class HomeScreenFragment : Fragment() {
         //add badge on message icon
         var badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
         badge.isVisible = true
-        badge.number = 2
+        badge.number = 2*/
     }
 }
 

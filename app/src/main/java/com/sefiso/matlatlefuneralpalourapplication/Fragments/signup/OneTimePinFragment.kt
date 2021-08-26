@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication.Fragments
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.signup
 
 
 import android.os.Bundle

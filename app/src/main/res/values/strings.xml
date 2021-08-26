@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">MatlatlaFP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="matlatle">MATLATLE</string>
+    <string name="copyright_c_2021">copyright © 2021</string>
+    <string name="matlatlefp_cc_registration_number_b2005126386">MatlatleFP CC. registration number: B2005126386</string>
+    <string name="incorporation_date_07_sept_2005">Incorporation Date: 07 Sept 2005</string>
+    <string name="version_2021_06_17_0">Version: 2021.06.17.0</string>
+    <string name="todo">TODO</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create account</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="your_details_are_safe_and_only_used_as_intended">Your details are safe and only used as intended.</string>
+    <string name="login_as_a_returning_user_or_create_an_account">Login as a returning user or Create an account</string>
+    <string name="password">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="we_ll_send_an_otp_to_your_email_address_to_finalise_changing_your_password">We\'ll send an OTP to youe email address to finalise changing your password</string>
+    <string name="email">Email</string>
+    <string name="e_g_matlatle_gmail_com">E.g. matlatle@gmail.com</string>
+    <string name="your_new_password">Your new password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="update">Update</string>
+    <string name="your_password">Your password</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="back_to_home_screen">Back to home screen</string>
+</resources>

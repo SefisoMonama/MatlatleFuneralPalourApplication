@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#63657A</color>
+    <color name="purple_700">#FFFFFF</color>
+    <color name="teal_200">#800000</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#800000</color>
+    <color name="grey">#63657A</color>
+    <color name="primary2">#FCC201</color>
+    <color name="green">#00C980</color>
+    <color name ="red">#D82429</color>
+
+
+    //Default mode colors
+    <color name="fragmentBackgroundColor">#F7FBF9</color>
+    <color name="toolbarBackgroundColor">#ffffff</color>
+    <color name="toolbarTitleColor">#FFFFFF</color>
+
+</resources>
