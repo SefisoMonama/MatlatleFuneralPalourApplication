@@ -1,22 +1,15 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments
 
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.card.MaterialCardView
+import com.sefiso.matlatlefuneralpalourapplication.ClaimsFragment
+import com.sefiso.matlatlefuneralpalourapplication.MessagesFragment
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentHomeScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,51 +36,45 @@ class HomeScreenFragment : Fragment() {
     }
 
 
-
     private fun setupUi() {
-
-        val drawer = binding.drawerLayout
-
         //Handle onBackPressed
         //Close the drawer first when you press traditional android back button, if the drawer was open
         //This will avoid closing the entire activity when you had your drawer open
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (drawer.isDrawerOpen(GravityCompat.START)) {
-                    drawer.closeDrawer(GravityCompat.START)
+                if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
+                } else {
+                    activity!!.supportFragmentManager.popBackStack()
                 }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
 
-        //Animate the view specified
-        animateImageView(binding.loginCardView)
-        animateImageView(binding.buyNowCardView)
-        animateImageView(binding.claimCardView)
-        animateImageView(binding.matlatleMobileCardView)
-
-        //navigate to login fragment when loginCardView is clicked
-        binding.loginCardView.setOnClickListener {
-            findNavController().navigate(R.id.action_homeScreenFragment_to_loginFragment)
+        //Open navigation drawer when menu icon is clicked
+        binding.menuImageView.setOnClickListener {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        //add menu icon on toolBar
-        //add onClickListener on menuIcon to open drawerLayout
-        val menuIcon = binding.toolbar3
-        menuIcon.setNavigationIcon(R.drawable.ic_menu)
-        menuIcon.setNavigationOnClickListener {
-            drawer.openDrawer(GravityCompat.START)
+        //add onClickListener on menuIcon to open/move to proper destination
+        binding.bottomNavigationView.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.moreItemsMenu -> binding.drawerLayout.openDrawer(GravityCompat.END)
+                //R.id.menuProfile -> findNavController().navigate(R.id.action_homeScreenFragment_to_profileFragment)
+                R.id.menuClaim -> findNavController().navigate(R.id.action_homeScreenFragment_to_claimsFragment)
+                R.id.menuNotification -> findNavController().navigate(R.id.action_homeScreenFragment_to_messagesFragment)
+            }
         }
 
-    }
+        //open more fragment (bottomNavigationSheet)
+        binding.moreImageView.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_moreFragment2)
+        }
 
-    //set flip animation on every cardView specified
-    private fun animateImageView(cardView: MaterialCardView) {
-        val alpha = PropertyValuesHolder.ofFloat(View.SCALE_Y, 0F, 1F)
-        ObjectAnimator.ofPropertyValuesHolder(cardView, alpha)
-            .apply {
-                duration = 600
-            }.start()
+        //add badge on message icon
+        var badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
+        badge.isVisible = true
+        badge.number = 2
     }
 }
 
