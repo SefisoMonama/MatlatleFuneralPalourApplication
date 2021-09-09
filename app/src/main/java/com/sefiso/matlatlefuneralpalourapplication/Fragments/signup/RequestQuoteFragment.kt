@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayout
 import com.sefiso.matlatlefuneralpalourapplication.*
 import com.sefiso.matlatlefuneralpalourapplication.Fragments.login.LoginFragment
@@ -24,7 +25,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class RequestQuoteFragment : Fragment() {
+class RequestQuoteFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentRequestQuoteBinding
     private lateinit var pagerAdapter: PagerAdapter

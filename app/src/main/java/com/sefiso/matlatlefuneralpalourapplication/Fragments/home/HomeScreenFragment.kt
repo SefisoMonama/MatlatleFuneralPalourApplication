@@ -35,6 +35,7 @@ class HomeScreenFragment : Fragment() {
 
 
     private fun setupUi() {
+
         //Handle onBackPressed
         //Close the drawer first when you press traditional android back button, if the drawer was open
         //This will avoid closing the entire activity when you had your drawer open
@@ -42,7 +43,7 @@ class HomeScreenFragment : Fragment() {
             override fun handleOnBackPressed() {
                 if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
-                } else {
+                }else{
                     activity!!.supportFragmentManager.popBackStack()
                 }
             }
@@ -59,27 +60,16 @@ class HomeScreenFragment : Fragment() {
             findNavController().navigate(R.id.action_homeScreenFragment_to_moreFragment)
         }
 
-        //add onClickListener on menuIcon to open/move to proper destination
-        /**binding.bottomNavigationView.setOnNavigationItemReselectedListener {
-            when (it.itemId) {
-                R.id.moreItemsMenu -> binding.drawerLayout.openDrawer(GravityCompat.END)
-                //R.id.menuProfile -> findNavController().navigate(R.id.action_homeScreenFragment_to_profileFragment)
-                R.id.menuClaim -> findNavController().navigate(R.id.action_homeScreenFragment_to_claimsFragment)
-                R.id.menuNotification -> findNavController().navigate(R.id.action_homeScreenFragment_to_messagesFragment)
-            }
+        binding.BuyCoverLinearLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_availablePlansFragment)
         }
 
-        //open more fragment (bottomNavigationSheet)
-        binding.moreImageView.setOnClickListener {
-            findNavController().navigate(R.id.action_homeScreenFragment_to_moreFragment2)
+        binding.lodgeClaimLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_claimsFragment)
         }
-
-        //add badge on message icon
-        var badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
-        badge.isVisible = true
-        badge.number = 2*/
     }
 }
+
 
 
 

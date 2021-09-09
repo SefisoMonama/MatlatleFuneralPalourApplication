@@ -31,14 +31,6 @@ class MoreFragment : BottomSheetDialogFragment() {
         binding.loginSignUpTextView.setOnClickListener {
             findNavController().navigate(R.id.action_moreFragment_to_requestQuoteFragment)
         }
-
-        binding.signOutImageView.setOnClickListener {
-            findNavController().navigate(R.id.action_moreFragment_to_requestQuoteFragment)
-        }
-
-        binding.signOutTextView.setOnClickListener {
-            findNavController().navigate(R.id.action_moreFragment_to_requestQuoteFragment)
-        }
     }
 
     override fun getTheme(): Int {

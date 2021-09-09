@@ -121,10 +121,11 @@
 
 
         <LinearLayout
-            android:id="@+id/layoutGoal"
+            android:id="@+id/BuyCover_linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
+            android:elevation="10dp"
             android:background="@drawable/linear_layout_shape"
             android:gravity="center"
             android:orientation="vertical"
@@ -157,13 +158,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/linear_layout_shape"
             android:gravity="center"
+            android:elevation="10dp"
             android:orientation="vertical"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/layoutGoal"
+            app:layout_constraintBottom_toBottomOf="@+id/BuyCover_linearLayout"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/layoutGoal"
-            app:layout_constraintTop_toTopOf="@+id/layoutGoal">
+            app:layout_constraintStart_toEndOf="@id/BuyCover_linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/BuyCover_linearLayout">
 
             <ImageView
                 android:layout_width="100dp"
@@ -183,10 +185,11 @@
 
 
         <LinearLayout
-            android:id="@+id/layoutHealth"
+            android:id="@+id/lodgeClaim_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
+            android:elevation="10dp"
             android:background="@drawable/linear_layout_shape"
             android:gravity="center"
             android:orientation="vertical"
@@ -194,7 +197,7 @@
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toStartOf="@id/layoutFinance"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutGoal">
+            app:layout_constraintTop_toBottomOf="@+id/BuyCover_linearLayout">
 
             <ImageView
                 android:layout_width="100dp"
@@ -220,13 +223,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/linear_layout_shape"
             android:gravity="center"
+            android:elevation="10dp"
             android:orientation="vertical"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/layoutHealth"
+            app:layout_constraintBottom_toBottomOf="@+id/lodgeClaim_layout"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/layoutGoal"
-            app:layout_constraintTop_toTopOf="@+id/layoutHealth">
+            app:layout_constraintStart_toEndOf="@id/BuyCover_linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/lodgeClaim_layout">
 
             <ImageView
                 android:layout_width="100dp"
@@ -257,7 +261,7 @@
             android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutHealth">
+            app:layout_constraintTop_toBottomOf="@id/lodgeClaim_layout">
 
             <ImageView
                 android:id="@+id/corona_imageView"

@@ -88,7 +88,7 @@
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.signup.RequestQuoteFragment"
         android:label="fragment_request_quote"
         tools:layout="@layout/fragment_request_quote"
-        app:startDestination="@id/action_requestQuoteFragment_to_loginFragment">
+        app:startDestination="@id/action_requestQuoteFragment_to_homeScreenFragment">
         <action
             android:id="@+id/action_requestQuoteFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -106,7 +106,11 @@
         android:id="@+id/claimsFragment"
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.ClaimsFragment"
         android:label="fragment_claims"
-        tools:layout="@layout/fragment_claims" />
+        tools:layout="@layout/fragment_claims" >
+        <action
+            android:id="@+id/action_claimsFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/messagesFragment"
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MessagesFragment"
@@ -117,26 +121,9 @@
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" >
-        <action
-            android:id="@+id/action_moreFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+
         <action
             android:id="@+id/action_moreFragment_to_requestQuoteFragment"
-            app:destination="@id/requestQuoteFragment" />
-        <action
-            android:id="@+id/action_moreFragment_to_requestQuoteFragment2"
-            app:destination="@id/requestQuoteFragment" />
-        <action
-            android:id="@+id/action_moreFragment_to_requestQuoteFragment3"
-            app:destination="@id/requestQuoteFragment" />
-        <action
-            android:id="@+id/action_moreFragment_to_requestQuoteFragment4"
-            app:destination="@id/requestQuoteFragment" />
-        <action
-            android:id="@+id/action_moreFragment_to_requestQuoteFragment5"
-            app:destination="@id/requestQuoteFragment" />
-        <action
-            android:id="@+id/action_moreFragment_to_requestQuoteFragment6"
             app:destination="@id/requestQuoteFragment" />
     </dialog>
     <fragment
@@ -144,9 +131,6 @@
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.HomeScreenFragment"
         android:label="fragment_home_screen"
         tools:layout="@layout/fragment_home_screen" >
-        <action
-            android:id="@+id/action_homeScreenFragment_to_moreFragment2"
-            app:destination="@id/moreFragment" />
         <action
             android:id="@+id/action_homeScreenFragment_to_messagesFragment"
             app:destination="@id/messagesFragment" />
@@ -156,6 +140,12 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_moreFragment"
             app:destination="@id/moreFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_requestQuoteFragment"
+            app:destination="@id/requestQuoteFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_availablePlansFragment"
+            app:destination="@id/availablePlansFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -171,5 +161,14 @@
         <action
             android:id="@+id/action_signupFragment_to_registrationFragment4"
             app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/availablePlansFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.AvailablePlansFragment"
+        android:label="fragment_available_plans"
+        tools:layout="@layout/fragment_available_plans" >
+        <action
+            android:id="@+id/action_availablePlansFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
     </fragment>
 </navigation>

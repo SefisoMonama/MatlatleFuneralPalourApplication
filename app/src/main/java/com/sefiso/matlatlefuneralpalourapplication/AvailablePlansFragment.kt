@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
+package com.sefiso.matlatlefuneralpalourapplication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,26 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
-import com.sefiso.matlatlefuneralpalourapplication.R
-import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentClaimsBinding
+import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentAvailablePlansBinding
 
-class ClaimsFragment : Fragment() {
-   private lateinit var binding: FragmentClaimsBinding
+class AvailablePlansFragment : Fragment() {
+
+    private lateinit var binding: FragmentAvailablePlansBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentClaimsBinding.inflate(layoutInflater)
+        binding = FragmentAvailablePlansBinding.inflate(layoutInflater)
         setupUi()
         return binding.root
     }
 
     private fun setupUi(){
-        binding.claimToolbar.setNavigationIcon(R.drawable.ic_back)
-        binding.claimToolbar.setNavigationOnClickListener {
-            findNavController().navigate(R.id.action_claimsFragment_to_homeScreenFragment)
+        binding.availablePlansToolbar.setNavigationIcon(R.drawable.ic_back)
+        binding.availablePlansToolbar.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_availablePlansFragment_to_homeScreenFragment)
         }
 
         val callback = object : OnBackPressedCallback(true) {
@@ -34,6 +36,8 @@ class ClaimsFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
+
+
     }
 
 }

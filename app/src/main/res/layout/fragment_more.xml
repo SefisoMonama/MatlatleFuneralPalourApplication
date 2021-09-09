@@ -61,18 +61,18 @@
         app:layout_constraintTop_toTopOf="@+id/login_signUp_imageView" />
 
     <TextView
-        android:id="@+id/signOut_textView"
+        android:id="@+id/exitApp_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Exit App"
         android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="@+id/signOut_imageView"
-        app:layout_constraintStart_toEndOf="@+id/signOut_imageView"
-        app:layout_constraintTop_toTopOf="@+id/signOut_imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/exitApp_imageView"
+        app:layout_constraintStart_toEndOf="@+id/exitApp_imageView"
+        app:layout_constraintTop_toTopOf="@+id/exitApp_imageView" />
 
     <ImageView
-        android:id="@+id/signOut_imageView"
+        android:id="@+id/exitApp_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
