@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/brand_textView"
+                android:id="@+id/login_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -63,12 +63,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:src="@drawable/ic_menu"
-                app:layout_constraintBottom_toBottomOf="@+id/brand_textView"
-                app:layout_constraintEnd_toStartOf="@+id/brand_textView"
+                app:layout_constraintBottom_toBottomOf="@+id/login_textView"
+                app:layout_constraintEnd_toStartOf="@+id/login_textView"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/brand_textView"
+                app:layout_constraintTop_toTopOf="@+id/login_textView"
                 app:tint="@color/white" />
 
             <LinearLayout
@@ -81,7 +81,7 @@
                 android:background="@drawable/white_rectangle_background"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/brand_textView">
+                app:layout_constraintTop_toBottomOf="@id/login_textView">
 
                 <EditText
                     android:id="@+id/search_editText"
@@ -111,11 +111,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_more"
-                app:layout_constraintBottom_toBottomOf="@+id/brand_textView"
+                app:layout_constraintBottom_toBottomOf="@+id/login_textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/brand_textView"
-                app:layout_constraintTop_toTopOf="@+id/brand_textView"
+                app:layout_constraintStart_toEndOf="@+id/login_textView"
+                app:layout_constraintTop_toTopOf="@+id/login_textView"
                 app:tint="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
