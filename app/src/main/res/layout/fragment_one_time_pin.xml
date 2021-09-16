@@ -13,6 +13,7 @@
         android:layout_height="5dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/green"
         android:background="@drawable/btn_shape"
         app:layout_constraintEnd_toStartOf="@+id/second_view"
         app:layout_constraintHorizontal_bias="0.5"
@@ -26,6 +27,7 @@
         android:layout_height="5dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/btn_shape"
+        android:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/first_view"
         app:layout_constraintEnd_toStartOf="@+id/third_view"
         app:layout_constraintHorizontal_bias="0.5"
@@ -37,6 +39,7 @@
         android:layout_width="50dp"
         android:layout_height="5dp"
         android:background="@drawable/btn_shape"
+        android:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/second_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -113,8 +116,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:text="Resend"
-        android:textColor="@color/primary"
-        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -134,6 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Authenticatin.."
+        android:textColor="@color/green"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/authenticating_progressBar"
         app:layout_constraintStart_toStartOf="@+id/authenticating_progressBar"
@@ -147,7 +151,7 @@
         android:layout_marginTop="32dp"
         android:cursorVisible="true"
         android:inputType="number"
-        android:textColor="@color/primary2"
+        android:textColor="@color/yellow"
         android:textSize="21sp"
         app:itemCount="4"
         app:itemHeight="48dp"
@@ -155,7 +159,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:lineColor="@color/primary2" />
+        app:lineColor="@color/yellow" />
 
     <ImageView
         android:id="@+id/imageView7"
