@@ -15,7 +15,7 @@ Libraries and processes that I've used and still to use to design the project ar
 
 <h3>People helping to complete/perfect this project</h3><hr>
 <ul>
-  <li>Mentor (Offerzen) : <a href = "">Daan de Bie</a>
+  <li>Mentor (Offerzen) : <a href = "https://github.com/daandebie">Daan de Bie</a>
   <li>Manager & Mentor  : <a href = "">Dieter Barnard</a>
 </ul><br>
 
