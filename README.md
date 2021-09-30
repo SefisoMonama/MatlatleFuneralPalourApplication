@@ -16,7 +16,7 @@ Libraries and processes that I've used and still to use to design the project ar
 <h3>People helping to complete/perfect this project</h3><hr>
 <ul>
   <li>Mentor (Offerzen) : <a href = "https://github.com/daandebie">Daan de Bie</a>
-  <li>Manager & Mentor  : <a href = "">Dieter Barnard</a>
+  <li>Manager & Mentor  : <a href = "https://github.com/dabarnard">Dieter Barnard</a>
 </ul><br>
 
 <p><i>After completion, the project will be hosted on Playstore.</i></p>
