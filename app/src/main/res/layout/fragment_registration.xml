@@ -13,13 +13,22 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:backgroundTint="@color/toolbarBackgroundColor"
-        android:elevation="5dp"
+        android:elevation="16dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:indeterminate="false"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
     <View
         android:id="@+id/first_view"
         android:layout_width="50dp"
@@ -32,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <View
         android:id="@+id/second_view"
@@ -75,17 +84,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:backgroundTint="@color/green"
+        android:background="@drawable/btn_shape"
+        android:backgroundTint="@color/primary2"
+        android:elevation="16dp"
         android:src="@drawable/ic_baseline_arrow_forward_24"
+        android:text="CONTINUE"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:tint="@color/white" />
 
     <ImageView
@@ -97,14 +112,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/signIn_textView" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/signIn_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/baloo_thambi"
         android:text="Sign in!"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -112,88 +126,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_view" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/name_textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/firstName_editText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/edit_text_shape"
+        android:ems="10"
+        android:hint="First name"
+        android:inputType="textAutoComplete"
+        android:padding="15dp"
+        android:paddingStart="24dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personalDetailSubtitle_textView">
+        app:layout_constraintTop_toBottomOf="@+id/personalDetailSubtitle_textView" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name_textInputEditText"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:hint="Name" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/surname_textInputLayout"
+    <EditText
+        android:id="@+id/lastName_editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/name_textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/name_textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/name_textInputLayout">
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_shape"
+        android:ems="10"
+        android:hint="Last name"
+        android:inputType="textAutoComplete"
+        android:padding="15dp"
+        android:paddingStart="24dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/firstName_editText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/firstName_editText"
+        app:layout_constraintTop_toBottomOf="@+id/firstName_editText" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/surname_textInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Surname"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/idNumber_textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+    <EditText
+        android:id="@+id/idNumber_editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:counterMaxLength="13"
-        app:counterEnabled="true"
-        app:layout_constraintEnd_toEndOf="@+id/surname_textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/surname_textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/surname_textInputLayout">
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_shape"
+        android:ems="10"
+        android:hint="ID Number"
+        android:maxLength="13"
+        android:inputType="text|number"
+        android:padding="15dp"
+        android:paddingStart="24dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/lastName_editText"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/lastName_editText"
+        app:layout_constraintTop_toBottomOf="@+id/lastName_editText" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idNumber_textInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="13"
-            android:inputType="number"
-            android:hint="ID number"
-            android:textSize="14sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mobileNumber_textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+    <EditText
+        android:id="@+id/contactDetails_editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:counterMaxLength="9"
-        app:prefixText="+27"
-        app:prefixTextColor="@color/primary2"
-        app:layout_constraintEnd_toEndOf="@+id/idNumber_textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/idNumber_textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/idNumber_textInputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mobileNumber_textInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="9"
-            android:textColor="@color/primary2"
-            android:inputType="number"
-            android:textSize="14sp"
-            android:hint="Mobile number" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_shape"
+        android:drawableStart="@drawable/icons8_south_africa_24"
+        android:ems="10"
+        android:padding="15dp"
+        android:maxLength="10"
+        android:hint="Mobile number"
+        android:drawablePadding="12dp"
+        android:inputType="text|number"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/idNumber_editText"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/idNumber_editText"
+        app:layout_constraintTop_toBottomOf="@+id/idNumber_editText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

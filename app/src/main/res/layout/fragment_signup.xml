@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".Fragments.signup.SignupFragment">
 
 
@@ -11,41 +12,101 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/contact_us_image"
-        app:layout_constraintBottom_toTopOf="@+id/welcome_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29000002"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/startSignUp_Button"
-        android:layout_width="347dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_shape"
-        android:text="Get started!"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcome_textView"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="Welcome to Matlatle application, let us help you register as a member, to get access to some of our best features!"
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/startSignUp_Button"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/signInEmail_Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/btn_shape"
+        android:backgroundTint="@color/white"
+        android:elevation="20dp"
+        android:gravity="center|center"
+        android:paddingStart="32dp"
+        android:drawableStart="@drawable/icons8_gmail_32"
+        android:text="Sign in with Email"
+        android:textAllCaps="false"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_textView" />
+
+    <Button
+        android:id="@+id/signInFacebook_Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/btn_shape"
+        android:backgroundTint="#3F51B5"
+        android:elevation="16dp"
+        android:paddingStart="32dp"
+        android:drawableStart="@drawable/icons8_facebook_circled_48"
+        android:text="Sign in with Facebook"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/signInEmail_Button"
+        app:layout_constraintStart_toStartOf="@+id/signInEmail_Button"
+        app:layout_constraintTop_toBottomOf="@+id/signInEmail_Button" />
+
+    <Button
+        android:id="@+id/signInTwitter_Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:paddingStart="32dp"
+        android:drawableStart="@drawable/icons8_twitter_circled_48"
+        android:background="@drawable/btn_shape"
+        android:backgroundTint="@color/lightBlue"
+        android:elevation="16dp"
+        android:text="Sign in with Twitter"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInFacebook_Button" />
+
+    <TextView
+        android:id="@+id/disclaimer_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:drawablePadding="10dp"
+        android:textStyle="bold"
+        android:drawableTint="@color/green"
+        android:textColor="@color/green"
+        android:drawableStart="@drawable/ic_lock"
+        android:text="Your details are safe and only used as intended."
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

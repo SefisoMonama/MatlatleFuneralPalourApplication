@@ -21,30 +21,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icons8_law_100"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/claim_toolbar" />
+
     <TextView
         android:id="@+id/lodgeClaim_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="Lodge a claim"
-        android:textStyle="bold"
+        android:layout_marginTop="12dp"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/claim_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:elevation="20dp"
         android:layout_height="wrap_content"
-        android:padding="12dp"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:elevation="20dp"
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lodgeClaim_textView">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,26 +68,27 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:textSize="18dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:padding="8dp"
                 android:text="Complete the details"
                 android:textAlignment="center"
-                android:layout_marginBottom="18dp"/>
+                android:textSize="18dp"
+                android:visibility="gone" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/policyHolder_textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                app:layout_constraintCircleRadius="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/white"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/white"
                 android:hint="Policyholder ID Number"
                 app:layout_constraintBottom_toTopOf="@+id/password_textInputLayout"
+                app:layout_constraintCircleRadius="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,25 +97,25 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/policyHolder_textInputEditText"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:inputType="number"/>
+                    android:background="@color/white"
+                    android:inputType="number"
+                    android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/claimant_username_textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                app:layout_constraintCircleRadius="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/white"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/white"
                 android:hint="Claimant Name and Surname"
                 app:layout_constraintBottom_toTopOf="@+id/password_textInputLayout"
+                app:layout_constraintCircleRadius="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,25 +124,25 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/claimant_username_textInputEditText"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:inputType="text"/>
+                    android:background="@color/white"
+                    android:inputType="text"
+                    android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/claimantMobile_textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                app:layout_constraintCircleRadius="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/white"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/white"
                 android:hint="Claimant Mobile Number"
                 app:layout_constraintBottom_toTopOf="@+id/password_textInputLayout"
+                app:layout_constraintCircleRadius="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -135,25 +151,25 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/claimantMobile_textInputEditText"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:inputType="number"/>
+                    android:background="@color/white"
+                    android:inputType="number"
+                    android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/claimantAltNumber_textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                app:layout_constraintCircleRadius="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/white"
                 android:layout_marginBottom="24dp"
-                android:hint="Claimant Name and Surname"
+                android:backgroundTint="@color/white"
+                android:hint="Cause of Death"
                 app:layout_constraintBottom_toTopOf="@+id/password_textInputLayout"
+                app:layout_constraintCircleRadius="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -162,13 +178,40 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/claimantAltMobile_textInputEditText"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:inputType="number"/>
+                    android:background="@color/white"
+                    android:inputType="number"
+                    android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/timeOfDeath_textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/white"
+                android:hint="Time of Death"
+                app:layout_constraintBottom_toTopOf="@+id/password_textInputLayout"
+                app:layout_constraintCircleRadius="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/timeOfDeath_textInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:inputType="datetime"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
@@ -182,11 +225,25 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/btn_shape"
+        android:text="Submit"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/nb_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="Please ensure you enter the information needed to the best of your knowledge."
+        android:textAlignment="center"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

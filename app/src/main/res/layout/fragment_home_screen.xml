@@ -122,14 +122,14 @@
                     android:id="@+id/BuyCover_linearLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="32dp"
                     android:background="@drawable/linear_layout_shape"
                     android:elevation="10dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="15dp"
                     app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toStartOf="@id/layoutFinance"
+                    app:layout_constraintEnd_toStartOf="@id/products_layout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/layoutHeader_constraints">
 
@@ -139,8 +139,7 @@
                         android:layout_margin="8dp"
                         android:contentDescription="@string/app_name"
                         android:padding="8dp"
-                        android:src="@drawable/ic_buynow"
-                        app:tint="@color/grey" />
+                        android:src="@drawable/icons8_buy_100"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -151,7 +150,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layoutFinance"
+                    android:id="@+id/products_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/linear_layout_shape"
@@ -171,7 +170,7 @@
                         android:layout_margin="8dp"
                         android:contentDescription="@string/app_name"
                         android:padding="8dp"
-                        android:src="@drawable/cart_image" />
+                        android:src="@drawable/icons8_products_100" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -193,7 +192,7 @@
                     android:orientation="vertical"
                     android:padding="15dp"
                     app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toStartOf="@id/layoutFinance"
+                    app:layout_constraintEnd_toStartOf="@id/products_layout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/BuyCover_linearLayout">
 
@@ -203,8 +202,7 @@
                         android:layout_margin="8dp"
                         android:contentDescription="@string/app_name"
                         android:padding="8dp"
-                        android:src="@drawable/ic_claims"
-                        app:tint="@color/green" />
+                        android:src="@drawable/icons8_law_100"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -216,7 +214,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/layoutComfort"
+                    android:id="@+id/contactUs_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/linear_layout_shape"
@@ -287,7 +285,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Golden rules for COVID-19"
+                    android:text="@string/golden_rules_for_covid_19"
                     android:textColor="@color/yellow"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/corona_linearLayout"
@@ -324,6 +322,8 @@
                     android:id="@+id/bottomNavigationView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:elevation="20dp"
+                    app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
                     app:backgroundTint="@color/white"
                     app:itemHorizontalTranslationEnabled="false"
                     app:itemIconTint="@drawable/navbar_color"
