@@ -161,7 +161,7 @@
         android:layout_marginTop="32dp"
         android:cursorVisible="true"
         android:inputType="number"
-        android:textColor="@color/yellow"
+        android:textColor="@color/green"
         android:textSize="21sp"
         app:itemCount="4"
         app:itemHeight="48dp"
@@ -169,7 +169,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:lineColor="@color/yellow" />
+        app:lineColor="@color/lightGrey" />
 
     <ImageView
         android:id="@+id/imageView7"

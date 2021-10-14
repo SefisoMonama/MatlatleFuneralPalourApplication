@@ -70,39 +70,19 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/login_textView" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/white_rectangle_background"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/login_textView">
-
-                        <EditText
-                            android:id="@+id/search_editText"
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:hint="search content"
-                            android:imeOptions="actionSearch"
-                            android:inputType="text"
-                            android:paddingStart="15dp"
-                            android:paddingEnd="15dp"
-                            android:textSize="12sp" />
-
-                        <ImageView
+                        <TextView
+                            android:id="@+id/welcomeUser_textView"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/search_shape"
-                            android:paddingStart="12dp"
-                            android:paddingEnd="12dp"
-                            android:src="@drawable/ic_search" />
-                    </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:textSize="18sp"
+                            android:layout_marginBottom="8dp"
+                            android:textAlignment="center"
+                            app:layout_constraintBottom_toBottomOf="@id/layoutHeader_constraints"
+                            app:layout_constraintTop_toBottomOf="@+id/login_textView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
 
                     <ImageView
                         android:id="@+id/openLoginSingUp_imageView"
@@ -291,32 +271,6 @@
                     app:layout_constraintEnd_toEndOf="@+id/corona_linearLayout"
                     app:layout_constraintStart_toStartOf="@+id/corona_linearLayout"
                     app:layout_constraintTop_toBottomOf="@id/corona_linearLayout" />
-
-
-                <ImageView
-                    android:id="@+id/noResult_imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_no_results"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toTopOf="@+id/noResult_textView"
-                    app:layout_constraintEnd_toEndOf="@+id/noResult_textView"
-                    app:layout_constraintStart_toStartOf="@+id/noResult_textView"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <TextView
-                    android:id="@+id/noResult_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="No results found"
-                    android:textAlignment="center"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/noResult_imageView" />
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bottomNavigationView"

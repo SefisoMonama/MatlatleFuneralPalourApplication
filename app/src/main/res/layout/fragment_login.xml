@@ -4,64 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="24dp"
     tools:context="Fragments.login.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_constraint"
+        android:background="@drawable/loginsignupshape"
+        android:backgroundTint="@color/lightGrey"
+        style="@style/AppBottomSheetDialogTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/login_circularImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/matlatlelogo"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="@color/white"
+            app:civ_shadow_radius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/login_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/primary2"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/login_circularImageView"
+            app:layout_constraintStart_toStartOf="@+id/login_circularImageView"
+            app:layout_constraintTop_toBottomOf="@+id/login_circularImageView" />
+
+        <TextView
+            android:id="@+id/enterCredentials_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Please enter your login details"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_textView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dontHaveAccount_textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/header_constraint">
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:indeterminate="true"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:padding="10dp"
-            android:paddingStart="24dp"
-            android:textSize="15sp"
-            android:hint="Username"
             android:layout_marginTop="24dp"
             android:background="@drawable/edit_text_shape"
-            android:inputType="textEmailAddress" />
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="20dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:paddingStart="24dp"
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="15sp"
             android:layout_marginTop="12dp"
+            android:background="@drawable/edit_text_shape"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="20dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:paddingStart="24dp"
-            android:background="@drawable/edit_text_shape"
-            android:hint="Password"
-            android:inputType="textPassword" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/forgotPassword_TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forgot Password"
-            android:textStyle="italic"
-            android:textSize="12sp"
             android:layout_marginTop="5dp"
-            android:textAlignment="textEnd" />
+            android:layout_marginBottom="24dp"
+            android:text="Forgot Password"
+            android:textAlignment="textEnd"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/login_button"
@@ -70,7 +135,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/btn_shape"
             android:text="Login"
             android:textColor="@color/white"
@@ -85,21 +150,14 @@
             app:layout_constraintWidth_percent=".8" />
 
 
-        <TextView
-            android:id="@+id/connectWith_textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/connect_with"
-            android:textSize="12sp"
-            android:textAlignment="center" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="12dp">
+            android:padding="12dp"
+            android:visibility="gone">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -112,9 +170,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                app:tint = "@color/blue"
                 android:src="@drawable/ic_facebook"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/white"
+                app:tint="@color/blue" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -124,23 +182,31 @@
         </LinearLayout>
     </LinearLayout>
 
+
     <TextView
-        android:id="@+id/login_textView"
+        android:id="@+id/dontHaveAccount_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        android:shadowColor="@color/primary2"
-        android:text="Login"
+        android:layout_marginTop="8dp"
+        android:text="Don't have an account?"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/regiterNow_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_thambi"
+        android:text="SignUp Now"
+        android:textAlignment="center"
+        android:textColor="@color/primary2"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/dontHaveAccount_textView"
+        app:layout_constraintStart_toEndOf="@+id/dontHaveAccount_textView"
+        app:layout_constraintTop_toTopOf="@+id/dontHaveAccount_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
