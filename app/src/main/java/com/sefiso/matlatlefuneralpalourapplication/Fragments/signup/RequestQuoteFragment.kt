@@ -65,10 +65,6 @@ class RequestQuoteFragment : BottomSheetDialogFragment() {
             }
         }
 
-        binding.backToHomeTextView.setOnClickListener {
-            findNavController().navigate(R.id.action_requestQuoteFragment_to_homeScreenFragment)
-        }
-
         //Underlining specified textView
         underlineText(binding.backToHomeTextView, getString(R.string.back_to_home_screen))
     }

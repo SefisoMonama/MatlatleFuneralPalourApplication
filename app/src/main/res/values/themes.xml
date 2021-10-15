@@ -10,9 +10,9 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:statusBarColor">#2B5380</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="cardCustomStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -50,5 +50,8 @@
         <item name="android:background">@drawable/round_top_corners_shape</item>
     </style>
 
+    <style name="BottomNavigation.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

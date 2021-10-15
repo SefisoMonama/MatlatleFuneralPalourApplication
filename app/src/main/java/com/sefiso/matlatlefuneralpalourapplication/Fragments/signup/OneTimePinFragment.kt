@@ -46,7 +46,6 @@ class OneTimePinFragment : androidx.fragment.app.Fragment() {
                 lifecycleScope.launch {
                     hideSomeViews()
                     delay(2000)
-                    findNavController().navigate(R.id.action_oneTimePinFragment_to_processCompletedFragment)
                 }
             }
         }

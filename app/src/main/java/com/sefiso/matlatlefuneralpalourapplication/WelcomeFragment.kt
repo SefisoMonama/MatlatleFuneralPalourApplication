@@ -1,57 +1,71 @@
 package com.sefiso.matlatlefuneralpalourapplication
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentWelcomeBinding
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class WelcomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var binding : FragmentWelcomeBinding
+    private lateinit var networkListener: NetworkListener
+
+    @ExperimentalCoroutinesApi
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentWelcomeBinding.inflate(layoutInflater)
+        setupUi()
+
+        lifecycleScope.launch {
+            networkListener = NetworkListener()
+            networkListener.checkNetworkAvailability(requireContext())
+                    .collect { status ->
+                       Toast.makeText(context, "No Internet Connection!", Toast.LENGTH_SHORT).show()
+                    }
+        }
+
+        return binding.root
+    }
+
+    private  fun setupUi(){
+
+        val callback2 = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                dialog()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(callback2)
+
+        binding.loginButton.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
+        }
+
+        binding.signupTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_signupFragment)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WelcomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                WelcomeFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    private fun dialog() {
+        val dialog = AlertDialog.Builder(context)
+        dialog.setMessage("You are about to exit the application.")
+            .setCancelable(false)
+            .setPositiveButton("EXIT"){dialog, _ -> requireActivity().finish()}
+            .setNegativeButton("CANCEL") { dialog, _ -> dialog.dismiss() }
+            .setTitle("Exiting App")
+        dialog.create()
+        dialog.show()
     }
 }

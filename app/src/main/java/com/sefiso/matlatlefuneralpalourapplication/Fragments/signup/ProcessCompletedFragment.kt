@@ -24,8 +24,6 @@ class ProcessCompletedFragment : Fragment() {
     }
 
     private fun setupUi(){
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_processCompletedFragment_to_homeScreenFragment)
-        }
+
     }
 }
