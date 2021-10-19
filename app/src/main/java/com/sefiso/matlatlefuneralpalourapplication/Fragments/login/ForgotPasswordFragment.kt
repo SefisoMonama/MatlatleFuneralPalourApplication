@@ -36,7 +36,7 @@ class ForgotPasswordFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupUi(){
+    private fun setupUi() {
 
         // add a back android icon to navigate back to login fragment
         binding.forgotPasswordToolbar.setNavigationIcon(R.drawable.ic_back)
@@ -45,12 +45,12 @@ class ForgotPasswordFragment : Fragment() {
         }
 
         binding.updateButton.setOnClickListener {
-            binding.progressBar.visibility = View.VISIBLE
+            Toast.makeText(context, "Authenticating...", Toast.LENGTH_SHORT).show()
             passwordReset()
         }
     }
 
-    private fun passwordReset(){
+    private fun passwordReset() {
 
         val email = binding.emailEditTextTextEmailAddress.text.toString().trim()
 
@@ -60,7 +60,7 @@ class ForgotPasswordFragment : Fragment() {
             return
         }
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             binding.emailEditTextTextEmailAddress.error = "Email is required"
             binding.emailEditTextTextEmailAddress.requestFocus()
             return
@@ -68,14 +68,14 @@ class ForgotPasswordFragment : Fragment() {
 
         Firebase.auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener {
-                    if(it.isSuccessful){
-                        binding.progressBar.visibility = View.GONE
+                    if (it.isSuccessful) {
+                        binding.progressBar.visibility = View.VISIBLE
                         var dialog = AlertDialog.Builder(context)
                         dialog.setMessage("Password reset link was send to the mail address provided.")
-                        dialog.setPositiveButton("OK"){dialog, _ -> findNavController().navigate(R.id.action_forgotPasswordFragment_to_welcomeFragment)}
+                        dialog.setPositiveButton("OK") { dialog, _ -> findNavController().navigate(R.id.action_forgotPasswordFragment_to_welcomeFragment) }
                         dialog.setTitle("Reset Password")
                         dialog.show()
-                    }else{
+                    } else {
                         binding.progressBar.visibility = View.GONE
                         var dialog = AlertDialog.Builder(context)
                         dialog.setMessage("Please ensure the mail provided matches the one you previously registered with, and try again.")

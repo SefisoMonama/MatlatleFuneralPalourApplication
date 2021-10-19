@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textStyle="bold"
-            android:fontFamily="@font/baloo_thambi"
+            android:fontFamily="@font/roboto_thin"
             android:text="Welcome to"
             android:textSize="30sp" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             android:gravity="center"
-            android:fontFamily="@font/baloo_thambi"
+            android:fontFamily="@font/roboto_thin"
             android:text="Matlatle Funeral Application"
             android:textSize="30sp"
             android:textStyle="bold" />

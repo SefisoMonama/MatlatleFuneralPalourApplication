@@ -51,13 +51,11 @@ class LoginFragment : BottomSheetDialogFragment() {
         }
 
         binding.loginButton.setOnClickListener {
-            binding.progressBar.visibility = View.VISIBLE
-            binding.progressBar.isIndeterminate = true
             Toast.makeText(context, "Logging In....", Toast.LENGTH_SHORT).show()
             loginUser()
         }
 
-        binding.regiterNowTextView.setOnClickListener {
+        binding.signUpNowLinearLayout.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_createUsernamePasswordFragment)
         }
 
@@ -78,6 +76,7 @@ class LoginFragment : BottomSheetDialogFragment() {
         if (password.isEmpty()) {
             binding.editTextTextPassword.error = "Please enter password"
             binding.editTextTextPassword.requestFocus()
+            binding.editTextTextPassword.text.clear()
             return
         }
 
@@ -89,19 +88,27 @@ class LoginFragment : BottomSheetDialogFragment() {
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        val user = auth.currentUser
-                            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        lifecycleScope.launch {
-                            binding.progressBar.visibility = View.VISIBLE
-                            binding.progressBar.isIndeterminate = true
-                            delay(1000)
-                            Toast.makeText(context, "Authentication failed. Try again!",
-                                    Toast.LENGTH_SHORT).show()
+                    lifecycleScope.launch {
+                        binding.progressBar.visibility = View.VISIBLE
+                        binding.progressBar.isIndeterminate = true
+                        delay(1000)
+
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            val user = auth.currentUser
                             binding.progressBar.visibility = View.GONE
+                            binding.progressBar.isIndeterminate = false
+                            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            lifecycleScope.launch {
+                                delay(1000)
+                                Toast.makeText(context, "Authentication failed. Try again!",
+                                        Toast.LENGTH_SHORT).show()
+                                binding.editTextTextPassword.text.clear()
+                                binding.progressBar.visibility = View.GONE
+                                binding.progressBar.isIndeterminate = false
+                            }
                         }
                     }
                 }

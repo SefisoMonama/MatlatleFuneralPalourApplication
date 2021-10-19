@@ -73,9 +73,7 @@ class CreateUsernamePasswordFragment : Fragment() {
 
         //move to one time pin fragment when continue button is clicked
         binding.registerButton.setOnClickListener {
-            binding.registerButton.isEnabled = false
-            binding.progressBar.visibility = View.VISIBLE
-            binding.progressBar.isIndeterminate = true
+            Toast.makeText(context, "Authenticating...", Toast.LENGTH_LONG).show()
             registerUser()
         }
     }
@@ -144,14 +142,20 @@ class CreateUsernamePasswordFragment : Fragment() {
             return
         }
 
+        if(!binding.checkBox.isChecked){
+            binding.checkBox.error = "Accept terms and condition to continue"
+            binding.checkBox.requestFocus()
+            return
+        }
+
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         //user = User()
                         val user = auth.currentUser
-                        binding.progressBar.visibility = View.GONE
-                        binding.progressBar.isIndeterminate = false
+                        binding.progressBar.visibility = View.VISIBLE
+                        binding.progressBar.isIndeterminate = true
                         user!!.sendEmailVerification()
                         dialog()
                         //Toast.makeText(context, "Registered successfully", Toast.LENGTH_SHORT).show()
