@@ -1,46 +1,33 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments.signup
 
-import android.app.Activity
 import android.app.AlertDialog
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
-import android.icu.text.CaseMap
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import android.view.ContextMenu
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
-import androidx.core.widget.doOnTextChanged
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.User
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentCreateUsernamePasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import java.util.regex.Pattern
+
 
 @AndroidEntryPoint
 class CreateUsernamePasswordFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateUsernamePasswordBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +42,7 @@ class CreateUsernamePasswordFragment : Fragment() {
     private fun setupUi() {
 
         auth = Firebase.auth
+        database = Firebase.database.reference
 
         //when traditional back button pressed move to signUp fragment
         val callback = object : OnBackPressedCallback(true) {
@@ -152,13 +140,17 @@ class CreateUsernamePasswordFragment : Fragment() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        //user = User()
+                        val newUser = User()
+                        newUser.User(name, surname, idNumber, contactDetails, email)
                         val user = auth.currentUser
-                        binding.progressBar.visibility = View.VISIBLE
+                        binding.progressBar.visibility = View.GONE
                         binding.progressBar.isIndeterminate = true
                         user!!.sendEmailVerification()
                         dialog()
-                        //Toast.makeText(context, "Registered successfully", Toast.LENGTH_SHORT).show()
+                        //write data to realtime database
+                        FirebaseDatabase.getInstance().getReference("Users")
+                                .child(name)
+                                .setValue(newUser)
                     } else {
                         // If sign in fails, display a message to the user.
                         binding.progressBar.visibility = View.GONE
@@ -177,22 +169,6 @@ class CreateUsernamePasswordFragment : Fragment() {
         dialog.create()
         dialog.setTitle("Registered Successfully")
         dialog.show()
-    }
-
-    /*
-    *when this function is called it'll send a mail to the mail host sgmonama@gmail.com
-     */
-    private fun sendMail(name: String, email: String) {
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.setData(Uri.parse("mailto:"))
-        intent.putExtra(Intent.EXTRA_EMAIL, email)
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Welcome to MatlatleFP Application")
-        intent.putExtra(Intent.EXTRA_TITLE, "Hi $name")
-        intent.putExtra(Intent.EXTRA_TEXT, "Welcome to MatlatleFP! Thanks for signing in to our application, your life will be simplified for the better. Enjoy!")
-        intent.putExtra(Intent.ACTION_SEND, email)
-        intent.setType("text/plain")
-        startActivity(Intent.createChooser(intent, "send mail"))
-        requireActivity().finish()
     }
 }
 

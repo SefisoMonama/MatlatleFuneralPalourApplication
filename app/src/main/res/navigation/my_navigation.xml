@@ -170,7 +170,7 @@
     </fragment>
     <fragment
         android:id="@+id/availablePlansFragment"
-        android:name="com.sefiso.matlatlefuneralpalourapplication.AvailablePlansFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.AvailablePlansFragment"
         android:label="fragment_available_plans"
         tools:layout="@layout/fragment_available_plans" >
         <action
@@ -194,7 +194,7 @@
     </fragment>
     <fragment
         android:id="@+id/covidFragment"
-        android:name="com.sefiso.matlatlefuneralpalourapplication.CovidFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.CovidFragment"
         android:label="fragment_covid"
         tools:layout="@layout/fragment_covid" >
         <action
@@ -203,7 +203,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="com.sefiso.matlatlefuneralpalourapplication.ContactsFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.ContactsFragment"
         android:label="fragment_contacts"
         tools:layout="@layout/fragment_contacts" >
         <action
@@ -212,7 +212,7 @@
     </fragment>
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.sefiso.matlatlefuneralpalourapplication.ProductsFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" >
         <action
@@ -221,7 +221,7 @@
     </fragment>
     <fragment
         android:id="@+id/covidGoldenRulesFragment"
-        android:name="com.sefiso.matlatlefuneralpalourapplication.CovidGoldenRulesFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.CovidGoldenRulesFragment"
         android:label="fragment_covid_golden_rules"
         tools:layout="@layout/fragment_covid_golden_rules" >
         <action

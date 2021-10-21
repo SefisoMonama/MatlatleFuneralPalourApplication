@@ -27,54 +27,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme(R.style.Theme_MatlatleFuneralPalourApplication)
         setContentView(binding.root)
-
-        //replaceFragment(HomeScreenFragment())
-
-        /**binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-        when(it.itemId){
-        R.id.menuClaim -> replaceFragment(ClaimsFragment())
-        R.id.menuHome ->replaceFragment(HomeScreenFragment())
-        R.id.menuNotification -> replaceFragment(RequestQuoteFragment())
-        R.id.moreItemsMenu -> lifecycleScope.launch {
-        binding.drawerLayout.visibility = View.VISIBLE
-        delay(100)
-        binding.drawerLayout.openDrawer(GravityCompat.END)
-        }
-        }
-        true
-        }*/
-
-
-        //add badge on message icon
-        /**val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
-        badge.isVisible = true
-        badge.number = 2
-
-        if(binding.drawerLayout.isDrawerOpen(GravityCompat.END)){
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-        when(it.itemId){
-        R.id.homeScreenFragment -> closeEndDrawer()
-        }
-        true
-        }
-        }
-
-        }
-
-
-        private fun closeEndDrawer(){
-        lifecycleScope.launch {
-        binding.drawerLayout.visibility = View.GONE
-        delay(100)
-        binding.drawerLayout.closeDrawer(GravityCompat.END)
-        }
-        }
-        private fun replaceFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.commit()
-        }*/
-
-
     }
 }

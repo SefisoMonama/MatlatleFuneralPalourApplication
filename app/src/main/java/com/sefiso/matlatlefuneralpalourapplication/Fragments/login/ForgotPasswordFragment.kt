@@ -1,17 +1,12 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments.login
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.style.UnderlineSpan
-import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -28,7 +23,7 @@ class ForgotPasswordFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentForgotPasswordBinding.inflate(layoutInflater)
         container?.clearDisappearingChildren()
@@ -70,15 +65,15 @@ class ForgotPasswordFragment : Fragment() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         binding.progressBar.visibility = View.VISIBLE
-                        var dialog = AlertDialog.Builder(context)
+                        val dialog = AlertDialog.Builder(context)
                         dialog.setMessage("Password reset link was send to the mail address provided.")
                         dialog.setPositiveButton("OK") { dialog, _ -> findNavController().navigate(R.id.action_forgotPasswordFragment_to_welcomeFragment) }
                         dialog.setTitle("Reset Password")
                         dialog.show()
                     } else {
                         binding.progressBar.visibility = View.GONE
-                        var dialog = AlertDialog.Builder(context)
-                        dialog.setMessage("Please ensure the mail provided matches the one you previously registered with, and try again.")
+                        val dialog = AlertDialog.Builder(context)
+                        dialog.setMessage("Email address not recognised, please ensure the mail provided matches the one you previously registered with, and try again.")
                         dialog.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                         dialog.setTitle("Couldn't send link")
                         dialog.show()
