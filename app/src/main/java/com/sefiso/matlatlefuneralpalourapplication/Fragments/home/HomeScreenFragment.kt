@@ -13,9 +13,12 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.internal.NavigationMenuView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentHomeScreenBinding
@@ -25,7 +28,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class  HomeScreenFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeScreenBinding
-    private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +54,24 @@ class  HomeScreenFragment : Fragment() {
         badge.isVisible = true
         badge.number = 2
 
-        //getUserDetails()
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        database.child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
+            if(it.exists()){
+                val firstName = it.child("name").value
+                binding.welcomeUserTextView.text = "Hi $firstName"
+            }else{
+                binding.welcomeUserTextView.visibility = View.GONE
+            }
+        }
+
+        binding.menuItemsNavView.setNavigationItemSelectedListener {
+            if(it.itemId == R.id.helpItem){
+                findNavController().navigate(R.id.action_homeScreenFragment_to_claimsFragment)
+            }
+            true
+        }
+
+
 
         //underline text view
         underlineText(binding.covidRulesTextView, string = "Golden rules for covid-19 (UNICEF)")

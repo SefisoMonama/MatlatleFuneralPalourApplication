@@ -40,16 +40,26 @@ class MoreFragment : BottomSheetDialogFragment() {
             dialog()
         }
 
-        binding.loginSignUpTextView.setOnClickListener {
-
-        }
-
         binding.loginSignUpImageView.setOnClickListener {
-            Firebase.auth.signOut()
+            val dialog = AlertDialog.Builder(context)
+            dialog.setTitle("LogOut")
+                    .setCancelable(false)
+                    .setMessage("You are about to log out.")
+                    .setNegativeButton("Cancel"){dialog, _ -> dialog.dismiss()}
+                    .setPositiveButton("LogOut"){dialog, _ -> findNavController().navigate(R.id.action_moreFragment_to_welcomeFragment)}
+            dialog.create()
+            dialog.show()
         }
 
         binding.loginSignUpTextView.setOnClickListener {
-            Firebase.auth.signOut()
+            val dialog = AlertDialog.Builder(context)
+            dialog.setTitle("Logout")
+                    .setCancelable(false)
+                    .setMessage("Press the logout button to continue logging out.")
+                    .setNegativeButton("Cancel"){dialog, _ -> dialog.dismiss()}
+                    .setPositiveButton("LogOut"){dialog, _ -> findNavController().navigate(R.id.action_moreFragment_to_welcomeFragment)}
+            dialog.create()
+            dialog.show()
         }
 
     }

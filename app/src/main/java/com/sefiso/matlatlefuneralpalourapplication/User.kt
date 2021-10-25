@@ -6,7 +6,6 @@ class User() {
     var idNumber: String =""
     var contactDetails: String =""
     var email: String = ""
-    var password: String = ""
 
     fun User() {
     }
@@ -17,7 +16,6 @@ class User() {
         this.idNumber = idNumber
         this.contactDetails = contactDetails
         this.email = email
-        this.password = password
     }
 
 }

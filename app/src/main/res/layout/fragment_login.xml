@@ -103,7 +103,7 @@
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="20dp"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:paddingStart="24dp"

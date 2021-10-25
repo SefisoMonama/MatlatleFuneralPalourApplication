@@ -119,7 +119,11 @@
         android:id="@+id/moreFragment"
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MoreFragment"
         android:label="fragment_more"
-        tools:layout="@layout/fragment_more" />
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/action_moreFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </dialog>
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.HomeScreenFragment"

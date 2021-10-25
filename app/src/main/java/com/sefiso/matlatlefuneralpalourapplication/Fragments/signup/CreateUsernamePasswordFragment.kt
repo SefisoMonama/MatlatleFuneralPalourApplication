@@ -149,7 +149,7 @@ class CreateUsernamePasswordFragment : Fragment() {
                         dialog()
                         //write data to realtime database
                         FirebaseDatabase.getInstance().getReference("Users")
-                                .child(name)
+                                .child(FirebaseAuth.getInstance().currentUser!!.uid)
                                 .setValue(newUser)
                     } else {
                         // If sign in fails, display a message to the user.
