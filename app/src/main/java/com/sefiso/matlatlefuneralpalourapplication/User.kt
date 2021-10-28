@@ -1,5 +1,7 @@
 package com.sefiso.matlatlefuneralpalourapplication
 
+import java.util.*
+
 class User() {
     var name: String = ""
     var surname: String = ""
@@ -11,8 +13,8 @@ class User() {
     }
 
     fun User(name: String, surname: String, idNumber: String, contactDetails: String, email: String) {
-        this.name = name
-        this.surname = surname
+        this.name = name.capitalize(Locale.ROOT)
+        this.surname = surname.capitalize(Locale.ROOT)
         this.idNumber = idNumber
         this.contactDetails = contactDetails
         this.email = email

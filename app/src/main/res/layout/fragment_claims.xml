@@ -22,11 +22,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/claim_imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/icons8_law_100"
         android:layout_marginTop="8dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lodgeClaim_textView" />
@@ -59,7 +60,7 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/claim_imageView">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -186,7 +186,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.sefiso.matlatlefuneralpalourapplication.WelcomeFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action

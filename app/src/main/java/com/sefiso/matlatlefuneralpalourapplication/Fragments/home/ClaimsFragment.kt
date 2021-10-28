@@ -45,15 +45,14 @@ class ClaimsFragment : Fragment() {
         }
 
         binding.submitClaimButton.setOnClickListener {
-            dialog(layoutInflater.inflate(R.layout.dialog_layout, null))
+            dialog()
         }
     }
 
-    private fun dialog(view: View){
+    private fun dialog(){
         val dialog = AlertDialog.Builder(context)
         dialog.setPositiveButton("OK"){dialog, _ -> dialog.dismiss() }
         dialog.setMessage("We acknowledge your request to claim. A service agent will contact you shortly.")
-        dialog.setView(view)
         dialog.show()
     }
 

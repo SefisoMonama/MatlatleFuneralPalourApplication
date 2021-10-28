@@ -8,18 +8,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.internal.NavigationMenuView
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentHomeScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +27,7 @@ class  HomeScreenFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeScreenBinding
     private lateinit var database: DatabaseReference
+    private lateinit var header: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,11 +53,28 @@ class  HomeScreenFragment : Fragment() {
         badge.isVisible = true
         badge.number = 2
 
+        //app:headerLayout="@layout/menu_header"-->
+        val navigationView = binding.menuItemsNavView
+        //Inflate header layout
+        val navHeader =  navigationView.inflateHeaderView(R.layout.menu_header)
+        //references to views
+        val headerImage = navHeader?.findViewById<ImageView>(R.id.imageView)
+        headerImage!!.setImageResource(R.drawable.microsoftteams_image__3_)
+        val headerFullNames = navHeader.findViewById<TextView>(R.id.title_textView)
+        var headerEmail = navHeader.findViewById<TextView>(R.id.email_textView)
+
+
+
         database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             if(it.exists()){
                 val firstName = it.child("name").value
-                binding.welcomeUserTextView.text = "Hi $firstName"
+                val surname = it.child("surname").value
+                val email = it.child("email").value
+                binding.welcomeUserTextView.text = "$firstName"
+                headerFullNames?.text = "$firstName $surname"
+                headerEmail?.text = "$email"
+
             }else{
                 binding.welcomeUserTextView.visibility = View.GONE
             }

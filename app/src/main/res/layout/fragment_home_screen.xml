@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/menu_header"
         app:menu="@menu/side_drawer" />
 
     <com.google.android.material.navigation.NavigationView
@@ -34,6 +33,7 @@
             android:id="@+id/layoutHeader_constraints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintHeight_percent=".5"
             android:background="@drawable/home_header_background"
             android:backgroundTint="@color/whiteBackgroundColor"
             android:elevation="16dp"
@@ -44,12 +44,31 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/login_textView"
+                android:id="@+id/welcomeUser_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/btn_shape"
+                android:backgroundTint="@color/white"
+                android:elevation="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:shadowColor="@color/primary2"
+                android:textAlignment="center"
+                android:textColor="@color/lightBlue"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appName_textView" />
+
+            <TextView
+                android:id="@+id/appName_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Matlatle"
-                android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/openLoginSingUp_imageView"
@@ -57,38 +76,19 @@
                 app:layout_constraintStart_toEndOf="@+id/menu_imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/menu_imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:src="@drawable/ic_menu"
-                app:layout_constraintBottom_toBottomOf="@+id/login_textView"
-                app:layout_constraintEnd_toStartOf="@+id/login_textView"
+                app:civ_border_width="0dp"
+                android:src="@drawable/microsoftteams_image__3_"
+                app:layout_constraintBottom_toBottomOf="@+id/appName_textView"
+                app:layout_constraintEnd_toStartOf="@+id/appName_textView"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/login_textView" />
-
-            <TextView
-                android:id="@+id/welcomeUser_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:textAlignment="center"
-                android:background="@drawable/btn_shape"
-                android:backgroundTint="@color/white"
-                android:shadowColor="@color/primary2"
-                android:elevation="10dp"
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/layoutHeader_constraints"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/login_textView" />
-
+                app:layout_constraintTop_toTopOf="@+id/appName_textView" />
 
             <ImageView
                 android:id="@+id/openLoginSingUp_imageView"
@@ -96,11 +96,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_more"
-                app:layout_constraintBottom_toBottomOf="@+id/login_textView"
+                app:layout_constraintBottom_toBottomOf="@+id/appName_textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/login_textView"
-                app:layout_constraintTop_toTopOf="@+id/login_textView" />
+                app:layout_constraintStart_toEndOf="@+id/appName_textView"
+                app:layout_constraintTop_toTopOf="@+id/appName_textView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
