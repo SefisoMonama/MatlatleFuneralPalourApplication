@@ -92,32 +92,9 @@ class LoginFragment : BottomSheetDialogFragment() {
             return
         }
 
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    lifecycleScope.launch {
-                        binding.progressBar.visibility = View.VISIBLE
-                        binding.progressBar.isIndeterminate = true
-                        delay(1000)
+        viewModel.signInWithEmailAndPassword(email, password)
 
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            val user = auth.currentUser
-                            binding.progressBar.visibility = View.GONE
-                            binding.progressBar.isIndeterminate = false
-                            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            lifecycleScope.launch {
-                                delay(1000)
-                                Toast.makeText(context, "Authentication failed. Try again!",
-                                        Toast.LENGTH_SHORT).show()
-                                binding.editTextTextPassword.text.clear()
-                                binding.progressBar.visibility = View.GONE
-                                binding.progressBar.isIndeterminate = false
-                            }
-                        }
-                    }
-                }
+
     }
 
     //This function underline specified textView
