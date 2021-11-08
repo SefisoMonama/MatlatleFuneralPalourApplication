@@ -30,14 +30,6 @@ class WelcomeFragment : Fragment() {
         binding = FragmentWelcomeBinding.inflate(layoutInflater)
         setupUi()
 
-        lifecycleScope.launch {
-            networkListener = NetworkListener()
-            networkListener.checkNetworkAvailability(requireContext())
-                    .collect { status ->
-                       Toast.makeText(context, "No Internet Connection!", Toast.LENGTH_SHORT).show()
-                    }
-        }
-
         return binding.root
     }
 

@@ -5,13 +5,13 @@
         android:icon="@drawable/icons8_home"
         android:title="Home" />
     <item
+        android:id="@+id/userProfile"
+        android:icon="@drawable/ic_menu_profile"
+        android:title="Profile" />
+    <item
         android:id="@+id/menuNotification"
         android:icon="@drawable/icons8_group_message_24"
         android:title="Notifications" />
-    <item
-        android:id="@+id/menuClaim"
-        android:icon="@drawable/icons8_smallclaim_24"
-        android:title="Claim" />
     <item
         android:id="@+id/moreItemsMenu"
         android:icon="@drawable/icons8_more_24"

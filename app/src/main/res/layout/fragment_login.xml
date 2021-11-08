@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="24dp"
     tools:context="Fragments.login.LoginFragment">
 
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.sefiso.matlatlefuneralpalourapplication.viewmodels.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="24dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_constraint"
         style="@style/AppBottomSheetDialogTheme"
@@ -73,6 +81,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:indeterminate="true"
+        android:visibility="@{vm.showProgressBar ? View.VISIBLE : View.GONE}"
         android:indeterminateTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,5 +190,5 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

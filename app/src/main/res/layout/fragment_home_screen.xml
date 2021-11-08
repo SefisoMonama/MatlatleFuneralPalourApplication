@@ -31,14 +31,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutHeader_constraints"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintHeight_percent=".5"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/home_header_background"
-            android:backgroundTint="@color/whiteBackgroundColor"
-            android:elevation="16dp"
+            android:backgroundTint="@color/white"
+            android:elevation="10dp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".5"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -47,48 +50,40 @@
                 android:id="@+id/welcomeUser_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/btn_shape"
-                android:backgroundTint="@color/white"
                 android:elevation="10dp"
                 android:paddingStart="10dp"
+                android:textAlignment="textStart"
                 android:paddingEnd="10dp"
-                android:shadowColor="@color/primary2"
-                android:textAlignment="center"
-                android:textColor="@color/lightBlue"
+                android:textColor="@color/primary2"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/appName_textView"
+                app:layout_constraintStart_toStartOf="@+id/appName_textView"
                 app:layout_constraintTop_toBottomOf="@+id/appName_textView" />
 
             <TextView
                 android:id="@+id/appName_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Matlatle"
-                android:textSize="40sp"
+                android:layout_marginStart="16dp"
+                android:text="Hello,"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/openLoginSingUp_imageView"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:textAlignment="textStart"
+                app:layout_constraintBottom_toBottomOf="@+id/menu_imageView"
                 app:layout_constraintStart_toEndOf="@+id/menu_imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/menu_imageView"
+                app:layout_constraintVertical_bias="0.0" />
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/menu_imageView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                app:civ_border_width="0dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="14dp"
                 android:src="@drawable/microsoftteams_image__3_"
-                app:layout_constraintBottom_toBottomOf="@+id/appName_textView"
-                app:layout_constraintEnd_toStartOf="@+id/appName_textView"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:civ_border_width="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/appName_textView" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/openLoginSingUp_imageView"
@@ -96,17 +91,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_more"
-                app:layout_constraintBottom_toBottomOf="@+id/appName_textView"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/appName_textView"
-                app:layout_constraintTop_toTopOf="@+id/appName_textView" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,10 +116,39 @@
                     android:layout_height="match_parent">
 
                     <LinearLayout
+                        android:id="@+id/news_linearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/soft_edges"
+                        android:backgroundTint="@color/red"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/ourServices_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto_thin"
+                        android:text="Our Services"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/products_layout"
+                        app:layout_constraintStart_toStartOf="@id/BuyCover_linearLayout"
+                        app:layout_constraintTop_toBottomOf="@id/news_linearLayout" />
+
+                    <LinearLayout
                         android:id="@+id/BuyCover_linearLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/linear_layout_shape"
                         android:elevation="10dp"
                         android:gravity="center"
@@ -134,7 +157,7 @@
                         app:layout_constraintDimensionRatio="H,1:1"
                         app:layout_constraintEnd_toStartOf="@id/products_layout"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@id/ourServices_textView">
 
                         <pl.droidsonroids.gif.GifImageView
                             android:layout_width="100dp"
@@ -292,10 +315,10 @@
                         android:text="@string/golden_rules_for_covid_19"
                         android:textColor="@color/yellow"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/corona_linearLayout"
                         app:layout_constraintStart_toStartOf="@+id/corona_linearLayout"
-                        app:layout_constraintTop_toBottomOf="@id/corona_linearLayout"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/corona_linearLayout" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </ScrollView>
