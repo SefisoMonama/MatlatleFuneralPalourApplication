@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentMoreBinding
 
@@ -28,6 +30,7 @@ class MoreFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupUi(){
+        auth = Firebase.auth
         binding.exitAppTextView.setOnClickListener {
             dialog()
         }
@@ -41,7 +44,7 @@ class MoreFragment : BottomSheetDialogFragment() {
                     .setCancelable(false)
                     .setMessage("You are about to log out.")
                     .setNegativeButton("Cancel"){dialog, _ -> dialog.dismiss()}
-                    .setPositiveButton("LogOut"){dialog, _ -> findNavController().navigate(R.id.action_moreFragment_to_welcomeFragment)}
+                    .setPositiveButton("LogOut"){dialog, _ -> findNavController().navigate(R.id.action_moreFragment_to_welcomeFragment) }
             dialog.create()
             dialog.show()
         }

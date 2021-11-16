@@ -52,10 +52,8 @@
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
                 android:paddingStart="10dp"
-                android:textAlignment="textStart"
-                android:paddingEnd="10dp"
-                android:textColor="@color/primary2"
                 android:textSize="18sp"
+                android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/appName_textView"
                 app:layout_constraintStart_toStartOf="@+id/appName_textView"
                 app:layout_constraintTop_toBottomOf="@+id/appName_textView" />
@@ -65,7 +63,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Hello,"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textAlignment="textStart"
@@ -79,8 +76,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="14dp"
-                android:src="@drawable/microsoftteams_image__3_"
                 app:civ_border_width="0dp"
+                app:tint="@color/fragmentBackgroundColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -90,7 +87,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_more"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -127,6 +123,15 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/liveTime"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
 
                     </LinearLayout>
 

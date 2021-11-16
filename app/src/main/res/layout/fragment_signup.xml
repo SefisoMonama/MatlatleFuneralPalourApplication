@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7FBF9"
+    android:background="@color/white"
     android:visibility="visible"
     tools:context=".Fragments.signup.SignupFragment">
 
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/matlatlelogo"
-        app:layout_constraintBottom_toTopOf="@+id/signInEmail_Button"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/contact_us_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_shape"
         android:backgroundTint="@color/white"
         android:drawableStart="@drawable/icons8_gmail_32"
@@ -51,28 +51,8 @@
         android:text="Sign in with Email"
         android:textAllCaps="false"
         android:textColor="@color/grey"
-        app:layout_constraintBottom_toTopOf="@+id/signInPhone_Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/signInPhone_Button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/btn_shape"
-        android:backgroundTint="@color/green"
-        android:drawableStart="@drawable/ic_call"
-        android:drawableTint="@color/white"
-        android:elevation="16dp"
-        android:paddingStart="32dp"
-        android:text="Sign in with Phone"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

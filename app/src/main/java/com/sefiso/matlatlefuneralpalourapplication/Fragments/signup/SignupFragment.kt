@@ -23,16 +23,11 @@ class SignupFragment : Fragment() {
         return binding.root
     }
 
-    private  fun setupUi() {
+    private fun setupUi() {
 
         //navigate to Create Username fragment when selected to sign in with Email and password.
         binding.signInEmailButton.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_createUsernamePasswordFragment)
-        }
-
-        //navigate to phone fragment when selected to sign in with phone.
-        binding.signInPhoneButton.setOnClickListener {
-            findNavController().navigate(R.id.action_signupFragment_to_registrationFragment)
         }
 
         //when traditional back button pressed move to welcome fragment
@@ -43,4 +38,6 @@ class SignupFragment : Fragment() {
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
+
+    
 }

@@ -1,6 +1,7 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
 import android.app.AlertDialog
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
@@ -12,27 +13,33 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.internal.NavigationMenuView
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.sefiso.matlatlefuneralpalourapplication.R
+import com.sefiso.matlatlefuneralpalourapplication.data.Initials
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentHomeScreenBinding
+import com.sefiso.matlatlefuneralpalourapplication.viewmodels.HomeScreenViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.sql.Time
+import java.time.Instant
+import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class  HomeScreenFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeScreenBinding
     private lateinit var database: DatabaseReference
-    private lateinit var header: NavigationView
+    private lateinit var viewModel: HomeScreenViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        //settingsViewModel = ViewModelProvider(requireActivity()).get(SettingsViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(HomeScreenViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -48,6 +55,8 @@ class  HomeScreenFragment : Fragment() {
 
     private fun setupUi() {
 
+        var time = (Time.from(Instant.now()).time).toString()
+
         //add badge on notification icon
         val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
         badge.isVisible = true
@@ -58,13 +67,12 @@ class  HomeScreenFragment : Fragment() {
         //Inflate header layout
         val navHeader =  navigationView.inflateHeaderView(R.layout.menu_header)
         //references to views
-        val headerImage = navHeader?.findViewById<ImageView>(R.id.imageView)
-        headerImage!!.setImageResource(R.drawable.microsoftteams_image__3_)
+        val headerImage = navHeader?.findViewById<ImageView>(R.id.header_imageView)
         val headerFullNames = navHeader.findViewById<TextView>(R.id.title_textView)
         var headerEmail = navHeader.findViewById<TextView>(R.id.email_textView)
 
 
-
+        //get user data name-surname and email and display them in our home screen
         database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             if(it.exists()){
@@ -75,19 +83,39 @@ class  HomeScreenFragment : Fragment() {
                 headerFullNames?.text = "$firstName $surname"
                 headerEmail?.text = "$email"
 
+                //set default initial drawable in the home screen
+                val initial = firstName.toString()[0]
+                val image = Initials(initial.toString())
+                binding.menuImageView.setImageResource(image.getInitialImageResource())
+
+                //also add default drawable in menu side drawer
+                headerImage!!.setImageResource(image.getInitialImageResource())
             }else{
                 binding.welcomeUserTextView.visibility = View.GONE
             }
         }
 
-        binding.menuItemsNavView.setNavigationItemSelectedListener {
-            if(it.itemId == R.id.helpItem){
-                findNavController().navigate(R.id.action_homeScreenFragment_to_claimsFragment)
-            }
-            true
+        //check for current time and display current part of the day to the user
+        var currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date()).toString()
+        binding.appNameTextView.visibility = View.VISIBLE
+
+        if(currentTime >= "05:00" && currentTime<="11:59"){
+            binding.appNameTextView.text = "Morning,"
+            binding.openLoginSingUpImageView.setImageResource(R.drawable.morningicon)
+        }else if(currentTime>="12:00" && currentTime<="04:59"){
+            binding.appNameTextView.text = "Afternoon,"
+            binding.openLoginSingUpImageView.setImageResource(R.drawable.day)
+        }else if(currentTime>="17:00" && currentTime<="20:59"){
+            binding.appNameTextView.text = "Evening,"
+            binding.openLoginSingUpImageView.setImageResource(R.drawable.evening)
+        }else{
+            binding.appNameTextView.text = "Night,"
+            binding.openLoginSingUpImageView.setImageResource(R.drawable.half_moon)
         }
 
-
+        viewModel.time.observe(viewLifecycleOwner){
+            binding.liveTime.text = it
+        }
 
         //underline text view
         underlineText(binding.covidRulesTextView, string = "Golden rules for covid-19 (UNICEF)")

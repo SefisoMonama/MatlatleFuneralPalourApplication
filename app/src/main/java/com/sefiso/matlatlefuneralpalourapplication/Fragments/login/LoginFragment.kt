@@ -1,6 +1,7 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments.login
 
 import android.annotation.SuppressLint
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
@@ -16,7 +17,15 @@ import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentLoginBinding
 import com.sefiso.matlatlefuneralpalourapplication.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Delay
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.sql.Time
+import java.time.Instant
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 @AndroidEntryPoint
 class LoginFragment : BottomSheetDialogFragment() {
@@ -42,7 +51,6 @@ class LoginFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupUi() {
-
         //move to forgot password fragment
         binding.forgotPasswordTextView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
@@ -85,13 +93,29 @@ class LoginFragment : BottomSheetDialogFragment() {
 
         lifecycleScope.launch {
             viewModel.signInWithEmailAndPassword(email, password)
+
             viewModel.loginSuccessful.observe(viewLifecycleOwner) {
                 it?.let {
                     if (it) {
                         findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
-                    }else{
-                        showMessage("Couldn't authenticate")
+                    } else {
+                            showMessage("Couldn't authenticate")
+                            binding.errorTextView.visibility = View.VISIBLE
+                            binding.editTextTextPassword.text.clear()
                     }
+                }
+            }
+
+            delay(3000)
+
+            viewModel.showProgressBar.observe(viewLifecycleOwner) {
+                it?.let {
+                    if (it) {
+                        binding.progressBar.visibility = View.VISIBLE
+                    } else {
+                        binding.progressBar.visibility = View.GONE
+                    }
+
                 }
             }
         }
@@ -109,7 +133,7 @@ class LoginFragment : BottomSheetDialogFragment() {
         return R.style.AppBottomSheetDialogTheme
     }
 
-    private fun showMessage(message:String){
+    private fun showMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }
