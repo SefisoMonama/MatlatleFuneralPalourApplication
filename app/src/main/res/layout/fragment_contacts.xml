@@ -27,8 +27,8 @@
         android:fontFamily="@font/roboto_thin"
         android:text="Contact Us"
         android:textAlignment="center"
-        android:textSize="18sp"
         android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,124 +44,161 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contacts_toolbar" />
 
-    <ImageView
-        android:id="@+id/claims_imageView"
+    <LinearLayout
+        android:id="@+id/claims_linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/icons8_ledger_80"
-        app:layout_constraintEnd_toStartOf="@+id/clientService_imageView"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/linear_layout_shape"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/clientService_linearLayout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contactUs_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/contactUs_textView">
 
-    <TextView
-        android:id="@+id/claims_textView"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons8_ledger_80" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Claims" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clientService_linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Claims"
-        app:layout_constraintEnd_toEndOf="@+id/claims_imageView"
-        app:layout_constraintStart_toStartOf="@+id/claims_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/claims_imageView" />
-
-    <ImageView
-        android:id="@+id/clientService_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icons8_headset_80"
-        app:layout_constraintBottom_toTopOf="@+id/claims_textView"
-        app:layout_constraintEnd_toStartOf="@+id/appSupport_imageView"
+        android:background="@drawable/linear_layout_shape"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/claims_linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/appSupport_linearLayout"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/claims_imageView"
-        app:layout_constraintTop_toTopOf="@+id/claims_imageView" />
+        app:layout_constraintStart_toEndOf="@+id/claims_linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/claims_linearLayout">
 
-    <TextView
-        android:id="@+id/clientService_textView"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons8_headset_80" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client Service" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/appSupport_linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Client Service"
-        app:layout_constraintEnd_toEndOf="@+id/clientService_imageView"
-        app:layout_constraintStart_toStartOf="@+id/clientService_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/clientService_imageView" />
-
-    <ImageView
-        android:id="@+id/appSupport_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icons8_hang_up_phone_80"
-        app:layout_constraintBottom_toTopOf="@+id/clientService_textView"
+        android:background="@drawable/linear_layout_shape"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/clientService_linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/clientService_imageView"
-        app:layout_constraintTop_toTopOf="@+id/clientService_imageView" />
+        app:layout_constraintStart_toEndOf="@+id/clientService_linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/clientService_linearLayout">
 
-    <TextView
-        android:id="@+id/appSupport_textView"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons8_hang_up_phone_80" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Support" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/matlatle_linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="App Support"
-        app:layout_constraintEnd_toEndOf="@+id/appSupport_imageView"
-        app:layout_constraintStart_toStartOf="@+id/appSupport_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/appSupport_imageView" />
+        android:background="@drawable/linear_layout_shape"
+        android:backgroundTint="@color/grey"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/headOffice_linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/appSupport_linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/appSupport_linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/headOffice_linearLayout">
 
-    <ImageView
-        android:id="@+id/matlatle_imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/matlatlelogo"
-        app:layout_constraintEnd_toEndOf="@+id/claims_imageView"
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/matlatlelogo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matlatle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/headOffice_linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linear_layout_shape"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/provider_linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/clientService_linearLayout"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/claims_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/claims_textView" />
+        app:layout_constraintStart_toStartOf="@+id/clientService_linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/provider_linearLayout">
 
-    <TextView
-        android:id="@+id/matlatle_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Matlatle"
-        app:layout_constraintEnd_toEndOf="@+id/matlatle_imageView"
-        app:layout_constraintStart_toStartOf="@+id/matlatle_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/matlatle_imageView" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons8_office_80" />
 
-    <ImageView
-        android:id="@+id/headOffice_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icons8_office_80"
-        app:layout_constraintBottom_toBottomOf="@+id/matlatle_imageView"
-        app:layout_constraintEnd_toStartOf="@+id/providers_imageView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/matlatle_imageView"
-        app:layout_constraintTop_toTopOf="@+id/matlatle_imageView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Head Office" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/headOffice_textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/provider_linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Head Office"
-        app:layout_constraintEnd_toEndOf="@+id/headOffice_imageView"
-        app:layout_constraintStart_toStartOf="@+id/headOffice_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/headOffice_imageView" />
+        android:layout_marginTop="24dp"
+        android:background="@drawable/linear_layout_shape"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/claims_linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/claims_linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/claims_linearLayout">
 
-    <ImageView
-        android:id="@+id/providers_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icons8_supplier_80"
-        app:layout_constraintBottom_toBottomOf="@+id/headOffice_imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/headOffice_imageView"
-        app:layout_constraintTop_toTopOf="@+id/headOffice_imageView" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons8_supplier_80" />
 
-    <TextView
-        android:id="@+id/providers_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Providers"
-        app:layout_constraintEnd_toEndOf="@+id/providers_imageView"
-        app:layout_constraintStart_toStartOf="@+id/providers_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/providers_imageView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Providers" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,7 +30,7 @@ class LoginViewModel @ViewModelInject constructor(
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         showProgressBar(false)
-                        loginSuccessfully(true)
+                        loginSuccessfully()
                     } else {
                         showProgressBar(false)
                     }
@@ -42,7 +42,7 @@ class LoginViewModel @ViewModelInject constructor(
         showProgressBar.value = show
     }
 
-    private fun loginSuccessfully(success: Boolean) {
-        loginSuccessful.value = success
+    private fun loginSuccessfully() {
+        loginSuccessful.value = true
     }
 }

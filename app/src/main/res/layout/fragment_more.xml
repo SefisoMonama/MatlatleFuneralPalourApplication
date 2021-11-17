@@ -9,21 +9,6 @@
     android:padding="20dp"
     tools:context=".Fragments.home.MoreFragment">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/logo_imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="2dp"
-        android:visibility="gone"
-        app:civ_shadow="true"
-        app:civ_shadow_color="@color/white"
-        app:civ_shadow_radius="10dp"
-        android:src="@drawable/matlatlelogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -35,7 +20,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_imageView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"

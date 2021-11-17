@@ -1,5 +1,6 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
@@ -13,7 +14,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -53,8 +53,9 @@ class  HomeScreenFragment : Fragment() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun setupUi() {
-
+        viewModel.partOfTheDay()
         var time = (Time.from(Instant.now()).time).toString()
 
         //add badge on notification icon
@@ -69,7 +70,7 @@ class  HomeScreenFragment : Fragment() {
         //references to views
         val headerImage = navHeader?.findViewById<ImageView>(R.id.header_imageView)
         val headerFullNames = navHeader.findViewById<TextView>(R.id.title_textView)
-        var headerEmail = navHeader.findViewById<TextView>(R.id.email_textView)
+        val headerEmail = navHeader.findViewById<TextView>(R.id.email_textView)
 
 
         //get user data name-surname and email and display them in our home screen
@@ -95,30 +96,49 @@ class  HomeScreenFragment : Fragment() {
             }
         }
 
+
         //check for current time and display current part of the day to the user
-        var currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date()).toString()
-        binding.appNameTextView.visibility = View.VISIBLE
+        //For morning
+       viewModel.morning.observe(viewLifecycleOwner){
+           it?.let {
+               if(it){
+                   binding.appNameTextView.text = "Morning,"
+                   binding.openLoginSingUpImageView.setImageResource(R.drawable.morningicon)
+               }
+           }
+       }
 
-        if(currentTime >= "05:00" && currentTime<="11:59"){
-            binding.appNameTextView.text = "Morning,"
-            binding.openLoginSingUpImageView.setImageResource(R.drawable.morningicon)
-        }else if(currentTime>="12:00" && currentTime<="04:59"){
-            binding.appNameTextView.text = "Afternoon,"
-            binding.openLoginSingUpImageView.setImageResource(R.drawable.day)
-        }else if(currentTime>="17:00" && currentTime<="20:59"){
-            binding.appNameTextView.text = "Evening,"
-            binding.openLoginSingUpImageView.setImageResource(R.drawable.evening)
-        }else{
-            binding.appNameTextView.text = "Night,"
-            binding.openLoginSingUpImageView.setImageResource(R.drawable.half_moon)
+        //For Afternoon
+        viewModel.afternoon.observe(viewLifecycleOwner){
+            it?.let {
+                if(it){
+                    binding.appNameTextView.text = "Afternoon,,"
+                    binding.openLoginSingUpImageView.setImageResource(R.drawable.day)
+                }
+            }
         }
 
-        viewModel.time.observe(viewLifecycleOwner){
-            binding.liveTime.text = it
+        //For Evening
+        viewModel.evening.observe(viewLifecycleOwner){
+            it?.let {
+                if(it){
+                    binding.appNameTextView.text = "Evening,"
+                    binding.openLoginSingUpImageView.setImageResource(R.drawable.evening)
+                }
+            }
         }
 
+        //For Night
+        viewModel.night.observe(viewLifecycleOwner){
+            it?.let {
+                if(it){
+                    binding.appNameTextView.text = "Night,"
+                    binding.openLoginSingUpImageView.setImageResource(R.drawable.half_moon__1_)
+                }
+            }
+        }
         //underline text view
-        underlineText(binding.covidRulesTextView, string = "Golden rules for covid-19 (UNICEF)")
+        underlineText(binding.covidRulesTextView, text = "Golden rules for covid-19 (UNICEF)")
 
         /**Handle navigation*/
         //Handle onBackPressed
@@ -180,9 +200,9 @@ class  HomeScreenFragment : Fragment() {
     }
 
     //This function underline specified textView
-    private fun underlineText(textView: TextView, string: String) {
-        val spannableString = SpannableString(string).apply {
-            setSpan(UnderlineSpan(), 0, string.length, 0)
+    private fun underlineText(textView: TextView, text: String) {
+        val spannableString = SpannableString(text).apply {
+            setSpan(UnderlineSpan(), 0, text.length, 0)
         }
         textView.text = spannableString
     }
