@@ -12,8 +12,9 @@
         android:id="@+id/menuItems_navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
         android:layout_gravity="start"
-        app:menu="@menu/side_drawer" />
+        app:menu="@menu/side_drawer"/>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/moreMenuItems_navView"
@@ -52,9 +53,9 @@
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
                 android:paddingStart="10dp"
-                android:textSize="18sp"
-                android:textAlignment="textStart"
                 android:paddingEnd="10dp"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/appName_textView"
                 app:layout_constraintStart_toStartOf="@+id/appName_textView"
                 app:layout_constraintTop_toBottomOf="@+id/appName_textView" />
@@ -167,8 +168,6 @@
                             android:text="10% chances of rain until 20:00"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
-
-
                     </LinearLayout>
 
                     <TextView

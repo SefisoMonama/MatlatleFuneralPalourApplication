@@ -24,15 +24,15 @@
                 android:id="@+id/letsGetStarted_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Let's get Started."
                 android:layout_marginTop="24dp"
+                android:text="Let's get Started."
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/availablePlans_toolbar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/availablePlans_toolbar"
                 tools:layout_editor_absoluteY="122dp" />
 
             <TextView
@@ -49,183 +49,208 @@
                 app:layout_constraintTop_toBottomOf="@id/letsGetStarted_textView" />
 
 
-
             <LinearLayout
-                    android:id="@+id/BuyCover_linearLayout"
-                    android:layout_width="match_parent"
+                android:id="@+id/BuyCover_linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/linear_layout_shape"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintWidth_percent=".5">
+
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/linear_layout_shape"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="15dp"
-                    app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="parent"
-                    app:layout_constraintWidth_percent=".5">
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/give_love" />
 
-                    <pl.droidsonroids.gif.GifImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/icons8_buy_gif" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:text="Not sure which plan would suit your needs? Let us help you choose."
-                        android:textAlignment="center" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/btn_shape"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="SELECT"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/funeralDignity_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/linear_layout_shape"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="15dp"
-                    app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toEndOf="@id/BuyCover_linearLayout"
-                    app:layout_constraintStart_toStartOf="@id/BuyCover_linearLayout"
-                    app:layout_constraintTop_toBottomOf="@+id/BuyCover_linearLayout"
-                    app:layout_constraintWidth_percent=".5">
-
-                    <pl.droidsonroids.gif.GifImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/icons8_buy_gif" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:text="Funeral Dignity."
-                        android:textAlignment="center"
-                        android:textSize="24sp" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/btn_shape"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="SELECT"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ultimateDignity_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/linear_layout_shape"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="15dp"
-                    app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toEndOf="@id/funeralDignity_layout"
-                    app:layout_constraintStart_toStartOf="@id/funeralDignity_layout"
-                    app:layout_constraintTop_toBottomOf="@+id/funeralDignity_layout"
-                    app:layout_constraintWidth_percent=".5">
-
-                    <pl.droidsonroids.gif.GifImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/app_name"
-                        android:src="@drawable/icons8_buy_gif" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:text="Funeral Dignity."
-                        android:textAlignment="center"
-                        android:textSize="24sp" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/btn_shape"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="SELECT"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="15dp"
-                    app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toEndOf="@+id/ultimateDignity_layout"
-                    app:layout_constraintStart_toStartOf="@+id/ultimateDignity_layout"
-                    app:layout_constraintTop_toBottomOf="@id/ultimateDignity_layout">
+                    android:padding="8dp"
+                    android:text="Not sure which plan would suit your needs? Let us help you choose."
+                    android:textAlignment="center" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="18dp"
-                        android:textSize="12sp"
-                        android:text="(c) Copyright Matlatle 2021. All rights reserved.Long-term insurance policies are underwritten and administered by Matlatle Funeral Palour Company cc."
-                        android:textAlignment="center" />
-                </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/btn_shape"
+                    android:backgroundTint="@color/lightBlue"
+                    android:drawableEnd="@drawable/ic_visit_site"
+                    android:drawablePadding="20dp"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:text="SELECT"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/funeralDignity_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/linear_layout_shape"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@id/BuyCover_linearLayout"
+                app:layout_constraintStart_toStartOf="@id/BuyCover_linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/BuyCover_linearLayout"
+                app:layout_constraintWidth_percent=".5">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/funeral" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:text="Funeral Dignity."
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/btn_shape"
+                    android:backgroundTint="@color/lightBlue"
+                    android:drawableEnd="@drawable/ic_visit_site"
+                    android:drawablePadding="20dp"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:text="SELECT"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ultimateDignity_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/linear_layout_shape"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@id/funeralDignity_layout"
+                app:layout_constraintStart_toStartOf="@id/funeralDignity_layout"
+                app:layout_constraintTop_toBottomOf="@+id/funeralDignity_layout"
+                app:layout_constraintWidth_percent=".5">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/coffin" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:text="Ultimate Dignity."
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/btn_shape"
+                    android:backgroundTint="@color/lightBlue"
+                    android:drawableEnd="@drawable/ic_visit_site"
+                    android:drawablePadding="20dp"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:text="SELECT"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@+id/ultimateDignity_layout"
+                app:layout_constraintStart_toStartOf="@+id/ultimateDignity_layout"
+                app:layout_constraintTop_toBottomOf="@id/ultimateDignity_layout">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/login_circularImageView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/matlatlelogo"
+                    app:civ_shadow_color="@color/white"
+                    app:civ_shadow_radius="10dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Copyright (c) MatlatleFP2021"
+                    android:textAlignment="center"
+                    android:textSize="9sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/availablePlans_toolbar"
         android:layout_width="0dp"
-        android:elevation="20dp"
-        android:backgroundTint="@color/white"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
+        android:backgroundTint="@color/white"
+        android:elevation="20dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="18dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

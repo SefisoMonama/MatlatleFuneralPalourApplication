@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey"
+    android:backgroundTint="@color/grey"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/grey">
+    android:padding="16dp">
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/header_imageView"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:src="@drawable/matlatlelogo"
+        android:src="@drawable/a"
         app:civ_border_color="@color/white"
         app:civ_border_width="2dp"
         app:civ_shadow="true"
@@ -30,8 +31,8 @@
         android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/header_imageView"
         app:layout_constraintStart_toStartOf="@+id/header_imageView"
         app:layout_constraintTop_toBottomOf="@+id/header_imageView" />
@@ -45,4 +46,35 @@
         app:layout_constraintEnd_toEndOf="@+id/title_textView"
         app:layout_constraintStart_toStartOf="@+id/title_textView"
         app:layout_constraintTop_toBottomOf="@+id/title_textView" />
+
+    <TextView
+        android:id="@+id/viewProfile_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/bullet"
+        android:drawablePadding="12dp"
+        android:layout_marginTop="24dp"
+        android:textSize="16sp"
+        android:drawableTint="@color/lightBlue"
+        android:text="View Profile"
+        android:textColor="@color/lightBlue"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="16sp"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/lightBlue"
+        app:layout_constraintBottom_toBottomOf="@+id/viewProfile_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewProfile_textView"
+        app:layout_constraintTop_toTopOf="@+id/viewProfile_textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

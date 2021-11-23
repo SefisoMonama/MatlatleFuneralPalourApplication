@@ -30,6 +30,39 @@ class ProductsFragment : Fragment() {
             findNavController().navigate(R.id.action_productsFragment_to_homeScreenFragment)
         }
 
+        //for Funeral dignity plan text view
+        binding.funeralDignityPlanTextView.setOnClickListener {
+            binding.UntimateDignityPlanTextView.visibility = View.GONE
+            binding.matlatlePlanDescTextView.visibility = View.GONE
+            binding.funeralDignityPlanTextView.visibility = View.GONE
+            binding.funeralDignityPlanInfoLinearLayout.visibility = View.VISIBLE
+        }
+
+        //for Ultimate dignity plan text view
+        binding.UntimateDignityPlanTextView.setOnClickListener {
+            binding.funeralDignityPlanTextView.visibility = View.GONE
+            binding.matlatlePlanDescTextView.visibility = View.GONE
+            binding.UntimateDignityPlanTextView.visibility = View.GONE
+            binding.ultimateDignityPlanInfoLinearLayout.visibility = View.VISIBLE
+
+        }
+
+        binding.funeralDignityPlanInfoLinearLayout.setOnClickListener {
+            binding.matlatlePlanDescTextView.visibility = View.VISIBLE
+            binding.funeralDignityPlanInfoLinearLayout.visibility= View.GONE
+            binding.funeralDignityPlanTextView.visibility = View.VISIBLE
+            binding.UntimateDignityPlanTextView.visibility = View.VISIBLE
+            binding.ultimateDignityPlanInfoLinearLayout.visibility = View.GONE
+        }
+
+        binding.ultimateDignityPlanInfoLinearLayout.setOnClickListener {
+            binding.matlatlePlanDescTextView.visibility = View.VISIBLE
+            binding.ultimateDignityPlanInfoLinearLayout.visibility= View.GONE
+            binding.funeralDignityPlanTextView.visibility = View.VISIBLE
+            binding.UntimateDignityPlanTextView.visibility = View.VISIBLE
+            binding.ultimateDignityPlanInfoLinearLayout.visibility = View.GONE
+        }
+
         //when traditional back button pressed move to home fragment
         val callback2 = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

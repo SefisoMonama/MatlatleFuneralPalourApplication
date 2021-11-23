@@ -2,7 +2,6 @@ package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
@@ -26,8 +25,6 @@ import com.sefiso.matlatlefuneralpalourapplication.viewmodels.HomeScreenViewMode
 import dagger.hilt.android.AndroidEntryPoint
 import java.sql.Time
 import java.time.Instant
-import java.util.Date
-import java.util.Locale
 
 @AndroidEntryPoint
 class  HomeScreenFragment : Fragment() {
@@ -61,19 +58,17 @@ class  HomeScreenFragment : Fragment() {
         //add badge on notification icon
         val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
         badge.isVisible = true
-        badge.number = 2
 
-        //app:headerLayout="@layout/menu_header"-->
         val navigationView = binding.menuItemsNavView
         //Inflate header layout
         val navHeader =  navigationView.inflateHeaderView(R.layout.menu_header)
         //references to views
-        val headerImage = navHeader?.findViewById<ImageView>(R.id.header_imageView)
+        val headerImage = navHeader.findViewById<ImageView>(R.id.header_imageView)
         val headerFullNames = navHeader.findViewById<TextView>(R.id.title_textView)
         val headerEmail = navHeader.findViewById<TextView>(R.id.email_textView)
 
 
-        //get user data name-surname and email and display them in our home screen
+        //get user data (name, surname and email) and display them in our home screen
         database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
             if(it.exists()){
@@ -133,7 +128,7 @@ class  HomeScreenFragment : Fragment() {
             it?.let {
                 if(it){
                     binding.appNameTextView.text = "Night,"
-                    binding.openLoginSingUpImageView.setImageResource(R.drawable.half_moon__1_)
+                    binding.openLoginSingUpImageView.setImageResource(R.drawable.half_moon)
                 }
             }
         }

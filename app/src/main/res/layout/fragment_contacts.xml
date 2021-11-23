@@ -23,7 +23,7 @@
         android:id="@+id/contactUs_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/roboto_thin"
         android:text="Contact Us"
         android:textAlignment="center"
@@ -62,12 +62,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icons8_ledger_80" />
+            android:src="@drawable/claim" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Claims" />
+            android:text="Claims   "
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -88,12 +89,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icons8_headset_80" />
+            android:src="@drawable/customer" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Client Service" />
+            android:text="Services"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
 
@@ -115,17 +117,18 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icons8_hang_up_phone_80" />
+            android:src="@drawable/smartphone" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="App Support" />
+            android:text="Support"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/matlatle_linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/linear_layout_shape"
         android:backgroundTint="@color/grey"
@@ -134,25 +137,27 @@
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/headOffice_linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/appSupport_linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/appSupport_linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/headOffice_linearLayout"
         app:layout_constraintTop_toTopOf="@+id/headOffice_linearLayout">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/matlatlelogo" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/office" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Matlatle" />
+            android:text="Matlatle"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/headOffice_linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/linear_layout_shape"
         android:elevation="10dp"
@@ -160,45 +165,69 @@
         android:orientation="vertical"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/provider_linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/clientService_linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/matlatle_linearLayout"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/clientService_linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/provider_linearLayout"
         app:layout_constraintTop_toTopOf="@+id/provider_linearLayout">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icons8_office_80" />
+            android:src="@drawable/office" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Head Office" />
+            android:text="Offices   "
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/provider_linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:background="@drawable/linear_layout_shape"
         android:elevation="10dp"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="24dp"
         android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/claims_linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/claims_linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/headOffice_linearLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/claims_linearLayout">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icons8_supplier_80" />
+            android:src="@drawable/provider" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Providers" />
+            android:text="Providers"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/login_circularImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/matlatlelogo"
+        app:civ_shadow_color="@color/white"
+        app:civ_shadow_radius="10dp"
+        app:layout_constraintBottom_toTopOf="@id/copyright_textView"
+        app:layout_constraintEnd_toEndOf="@id/copyright_textView"
+        app:layout_constraintStart_toStartOf="@id/copyright_textView"/>
+    <TextView
+        android:id="@+id/copyright_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Copyright (c) MatlatleFP2021"
+        android:textAlignment="center"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

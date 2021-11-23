@@ -19,9 +19,9 @@
             android:title="Buy Now" />
 
         <item
-            android:id="@+id/logout"
-            android:icon="@drawable/ic_claim"
-            android:title="Claims" />
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
 
         <item
             android:id="@+id/contactUs"

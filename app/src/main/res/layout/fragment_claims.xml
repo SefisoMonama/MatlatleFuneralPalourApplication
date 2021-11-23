@@ -21,16 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/claim_imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icons8_law_100"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/matlatlelogo"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lodgeClaim_textView" />
+        app:layout_constraintTop_toBottomOf="@id/claim_toolbar" />
 
     <TextView
         android:id="@+id/lodgeClaim_textView"
@@ -41,11 +40,12 @@
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:visibility="gone"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/claim_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/claim_imageView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -60,7 +60,7 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/claim_imageView">
+        app:layout_constraintTop_toBottomOf="@+id/lodgeClaim_textView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,33 +169,11 @@
                     android:inputType="number"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/claimantAltNumber_textInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                android:layout_width="match_parent"
+            <Spinner
+                android:id="@+id/simpleSpinner"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:backgroundTint="@color/white"
-                android:hint="Cause of Death"
-                android:textColorHint="@color/grey"
-                app:layout_constraintBottom_toTopOf="@+id/password_textInputLayout"
-                app:layout_constraintCircleRadius="40dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/claimantAltMobile_textInputEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:inputType="number"
-                    android:textSize="14sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
+                android:layout_centerHorizontal="true" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/timeOfDeath_textInputLayout"
