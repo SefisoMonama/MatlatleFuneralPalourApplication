@@ -24,7 +24,8 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/cross_imageView"
+            android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:src="@drawable/gravestone" />
 

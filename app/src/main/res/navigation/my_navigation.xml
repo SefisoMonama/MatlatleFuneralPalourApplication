@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_navigation"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <dialog
         android:id="@+id/loginFragment"
@@ -195,6 +195,9 @@
         <action
             android:id="@+id/action_welcomeFragment_to_signupFragment"
             app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_self"
+            app:destination="@id/welcomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/covidFragment"
@@ -237,4 +240,12 @@
         android:name="com.sefiso.matlatlefuneralpalourapplication.SuccessfullyRegisteredAlertDialogFragment"
         android:label="fragment_successfully_registered_alert_dialog"
         tools:layout="@layout/fragment_successfully_registered_alert_dialog" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>

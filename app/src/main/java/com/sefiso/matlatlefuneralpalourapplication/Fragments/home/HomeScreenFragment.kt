@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
@@ -52,8 +53,16 @@ class  HomeScreenFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setupUi() {
-        viewModel.partOfTheDay()
-        var time = (Time.from(Instant.now()).time).toString()
+
+        //animation
+        val fromStartAnimation = AnimationUtils.loadAnimation(context, R.anim.side_anim)
+        val fromEndAnimation = AnimationUtils.loadAnimation(context, R.anim.bottom_anim)
+
+        //set animation on home screen layout
+        binding.BuyCoverLinearLayout.animation = fromStartAnimation
+        binding.lodgeClaimLayout.animation = fromStartAnimation
+        binding.productsLayout.animation = fromEndAnimation
+        binding.contactUsLayout.animation = fromEndAnimation
 
         //add badge on notification icon
         val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.menuNotification)
@@ -91,47 +100,10 @@ class  HomeScreenFragment : Fragment() {
             }
         }
 
+        //greet user
+        binding.appNameTextView.text = "Hello,"
 
-        //check for current time and display current part of the day to the user
-        //For morning
-       viewModel.morning.observe(viewLifecycleOwner){
-           it?.let {
-               if(it){
-                   binding.appNameTextView.text = "Morning,"
-                   binding.openLoginSingUpImageView.setImageResource(R.drawable.morningicon)
-               }
-           }
-       }
 
-        //For Afternoon
-        viewModel.afternoon.observe(viewLifecycleOwner){
-            it?.let {
-                if(it){
-                    binding.appNameTextView.text = "Afternoon,,"
-                    binding.openLoginSingUpImageView.setImageResource(R.drawable.day)
-                }
-            }
-        }
-
-        //For Evening
-        viewModel.evening.observe(viewLifecycleOwner){
-            it?.let {
-                if(it){
-                    binding.appNameTextView.text = "Evening,"
-                    binding.openLoginSingUpImageView.setImageResource(R.drawable.evening)
-                }
-            }
-        }
-
-        //For Night
-        viewModel.night.observe(viewLifecycleOwner){
-            it?.let {
-                if(it){
-                    binding.appNameTextView.text = "Night,"
-                    binding.openLoginSingUpImageView.setImageResource(R.drawable.half_moon)
-                }
-            }
-        }
         //underline text view
         underlineText(binding.covidRulesTextView, text = "Golden rules for covid-19 (UNICEF)")
 

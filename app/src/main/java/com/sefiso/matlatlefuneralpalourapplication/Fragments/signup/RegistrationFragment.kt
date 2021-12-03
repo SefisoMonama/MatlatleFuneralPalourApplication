@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.sefiso.matlatlefuneralpalourapplication.R
-import com.sefiso.matlatlefuneralpalourapplication.User
+import com.sefiso.matlatlefuneralpalourapplication.data.User
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentRegistrationBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay

@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication
+package com.sefiso.matlatlefuneralpalourapplication.data
 
 import java.util.*
 

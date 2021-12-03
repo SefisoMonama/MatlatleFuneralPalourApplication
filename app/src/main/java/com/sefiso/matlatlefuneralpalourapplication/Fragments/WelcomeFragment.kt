@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.lifecycleScope
@@ -34,6 +35,9 @@ class WelcomeFragment : Fragment() {
     }
 
     private  fun setupUi(){
+
+        val fromTopAnim = AnimationUtils.loadAnimation(context, R.anim.from_top_anim)
+        binding.crossImageView.animation = fromTopAnim
 
         val callback2 = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
