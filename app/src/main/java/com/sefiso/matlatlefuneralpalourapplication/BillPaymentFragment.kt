@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
+package com.sefiso.matlatlefuneralpalourapplication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,22 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
-import com.sefiso.matlatlefuneralpalourapplication.R
-import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentSettingsBinding
+import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentBillPaymentBinding
 
-class SettingsFragment : Fragment() {
-   private lateinit var binding: FragmentSettingsBinding
+
+class BillPaymentFragment : Fragment() {
+
+    private lateinit var binding: FragmentBillPaymentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentSettingsBinding.inflate(layoutInflater)
+        binding = FragmentBillPaymentBinding.inflate(layoutInflater)
         setupUi()
         return binding.root
     }
 
-    private fun setupUi() {
+    private fun setupUi(){
 
         /**navigate back to home fragment*/
         //when traditional back button pressed move to home fragment
@@ -34,9 +36,14 @@ class SettingsFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(callback2)
 
         //
-        binding.settingsToolbar.setNavigationIcon(R.drawable.ic_back)
-        binding.settingsToolbar.setNavigationOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_homeScreenFragment)
+        binding.billPaymentToolbar.setNavigationIcon(R.drawable.ic_back)
+        binding.billPaymentToolbar.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_billPaymentFragment_to_homeScreenFragment)
+        }
+
+        //
+        binding.homeFloatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_billPaymentFragment_to_homeScreenFragment)
         }
     }
 }

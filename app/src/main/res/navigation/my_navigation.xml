@@ -114,7 +114,11 @@
         android:id="@+id/messagesFragment"
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MessagesFragment"
         android:label="fragment_messages"
-        tools:layout="@layout/fragment_messages" />
+        tools:layout="@layout/fragment_messages" >
+        <action
+            android:id="@+id/action_messagesFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
     <dialog
         android:id="@+id/moreFragment"
         android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.MoreFragment"
@@ -156,6 +160,15 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_covidGoldenRulesFragment"
             app:destination="@id/covidGoldenRulesFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_billPaymentFragment"
+            app:destination="@id/billPaymentFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -247,5 +260,32 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billPaymentFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.BillPaymentFragment"
+        android:label="fragment_bill_payment"
+        tools:layout="@layout/fragment_bill_payment" >
+        <action
+            android:id="@+id/action_billPaymentFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sefiso.matlatlefuneralpalourapplication.Fragments.home.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
     </fragment>
 </navigation>

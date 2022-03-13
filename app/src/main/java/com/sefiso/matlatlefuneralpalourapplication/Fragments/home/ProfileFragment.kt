@@ -8,23 +8,27 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.sefiso.matlatlefuneralpalourapplication.R
-import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentSettingsBinding
+import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentProfileBinding
 
-class SettingsFragment : Fragment() {
-   private lateinit var binding: FragmentSettingsBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+class ProfileFragment : Fragment() {
+
+    private lateinit var binding: FragmentProfileBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentSettingsBinding.inflate(layoutInflater)
+        binding = FragmentProfileBinding.inflate(layoutInflater)
         setupUi()
         return binding.root
     }
 
-    private fun setupUi() {
+    private fun setupUi(){
+        binding.profileToolbar.setNavigationIcon(R.drawable.ic_back)
+        binding.profileToolbar.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_homeScreenFragment)
+        }
 
-        /**navigate back to home fragment*/
         //when traditional back button pressed move to home fragment
         val callback2 = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -32,11 +36,5 @@ class SettingsFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback2)
-
-        //
-        binding.settingsToolbar.setNavigationIcon(R.drawable.ic_back)
-        binding.settingsToolbar.setNavigationOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_homeScreenFragment)
-        }
     }
 }

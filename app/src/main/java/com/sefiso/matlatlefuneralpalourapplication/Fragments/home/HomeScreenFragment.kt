@@ -24,11 +24,9 @@ import com.sefiso.matlatlefuneralpalourapplication.data.Initials
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentHomeScreenBinding
 import com.sefiso.matlatlefuneralpalourapplication.viewmodels.HomeScreenViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.sql.Time
-import java.time.Instant
 
 @AndroidEntryPoint
-class  HomeScreenFragment : Fragment() {
+class HomeScreenFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeScreenBinding
     private lateinit var database: DatabaseReference
@@ -41,8 +39,8 @@ class  HomeScreenFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeScreenBinding.inflate(layoutInflater)
@@ -53,6 +51,27 @@ class  HomeScreenFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setupUi() {
+
+        //navigate to the correct fragment when specific item id is selected on Bottom navigation drawer
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.menuProfile -> findNavController().navigate(R.id.action_homeScreenFragment_to_profileFragment)
+                R.id.menuNotification -> findNavController().navigate(R.id.action_homeScreenFragment_to_messagesFragment)
+                R.id.menuPay -> findNavController().navigate(R.id.action_homeScreenFragment_to_billPaymentFragment)
+                R.id.menuSettings -> findNavController().navigate(R.id.action_homeScreenFragment_to_settingsFragment)
+            }
+            true
+        }
+
+        //navigate to the correct fragment when specific item id is selected on side drawer
+        binding.menuItemsNavView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.products ->  findNavController().navigate(R.id.action_homeScreenFragment_to_productsFragment)
+                R.id.buyNow ->  findNavController().navigate(R.id.action_homeScreenFragment_to_availablePlansFragment)
+                R.id.contactUs ->  findNavController().navigate(R.id.action_homeScreenFragment_to_contactsFragment)
+            }
+            true
+        }
 
         //animation
         val fromStartAnimation = AnimationUtils.loadAnimation(context, R.anim.side_anim)
@@ -70,7 +89,7 @@ class  HomeScreenFragment : Fragment() {
 
         val navigationView = binding.menuItemsNavView
         //Inflate header layout
-        val navHeader =  navigationView.inflateHeaderView(R.layout.menu_header)
+        val navHeader = navigationView.inflateHeaderView(R.layout.menu_header)
         //references to views
         val headerImage = navHeader.findViewById<ImageView>(R.id.header_imageView)
         val headerFullNames = navHeader.findViewById<TextView>(R.id.title_textView)
@@ -80,7 +99,7 @@ class  HomeScreenFragment : Fragment() {
         //get user data (name, surname and email) and display them in our home screen
         database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(FirebaseAuth.getInstance().currentUser!!.uid).get().addOnSuccessListener {
-            if(it.exists()){
+            if (it.exists()) {
                 val firstName = it.child("name").value
                 val surname = it.child("surname").value
                 val email = it.child("email").value
@@ -95,7 +114,7 @@ class  HomeScreenFragment : Fragment() {
 
                 //also add default drawable in menu side drawer
                 headerImage!!.setImageResource(image.getInitialImageResource())
-            }else{
+            } else {
                 binding.welcomeUserTextView.visibility = View.GONE
             }
         }
@@ -164,6 +183,11 @@ class  HomeScreenFragment : Fragment() {
         binding.covidRulesTextView.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenFragment_to_covidGoldenRulesFragment)
         }
+
+        //open profile fragment
+        binding.newsLinearLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_profileFragment)
+        }
     }
 
     //This function underline specified textView
@@ -178,12 +202,18 @@ class  HomeScreenFragment : Fragment() {
         val dialog = AlertDialog.Builder(context)
         dialog.setMessage("You are about to exit the application.")
             .setCancelable(false)
-            .setPositiveButton("EXIT"){dialog, _ -> requireActivity().finish()}
+            .setPositiveButton("EXIT") { dialog, _ -> requireActivity().finish() }
             .setNegativeButton("CANCEL") { dialog, _ -> dialog.dismiss() }
             .setTitle("Exiting App")
         dialog.create()
         dialog.show()
     }
+
+    private fun makeCurrentFragment(fragment: Fragment) =
+        requireFragmentManager().beginTransaction().apply {
+            replace(R.id.nav_host_fragment_container, fragment)
+            commit()
+        }
 }
 
 
