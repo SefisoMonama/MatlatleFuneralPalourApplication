@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "428274431630",
+    "project_id": "authentication-3b95e",
+    "storage_bucket": "authentication-3b95e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428274431630:android:cc2bf6f57e2f977e2ebbdf",
+        "android_client_info": {
+          "package_name": "com.sefiso.matlatlefuneralpalourapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428274431630-fqrlg14dudcgh8o4dalh2nllm4995eo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNe32NX41gxUeetltvz46v1zPbyDC2c_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428274431630-fqrlg14dudcgh8o4dalh2nllm4995eo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

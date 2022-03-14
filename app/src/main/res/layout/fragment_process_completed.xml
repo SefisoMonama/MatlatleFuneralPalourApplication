@@ -13,7 +13,7 @@
         android:layout_marginTop="8dp"
         android:text="You're done!"
         android:textAlignment="center"
-        android:textColor="@color/primary2"
+        android:textColor="@color/green"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView18"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="@+id/done_textView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:tint="@color/primary2" />
+        app:tint="@color/green" />
 
     <TextView
         android:id="@+id/textView18"
@@ -40,7 +40,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:textStyle="italic"
         android:text="Re a go amogela, poloko ya setho leya maemo a godimo ke molao."
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -59,7 +58,7 @@
         android:text="done"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:backgroundTint="@color/primary2"
+        app:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

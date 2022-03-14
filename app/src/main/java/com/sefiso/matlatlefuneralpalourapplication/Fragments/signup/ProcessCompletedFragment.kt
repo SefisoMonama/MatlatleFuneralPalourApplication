@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentProcessCompletedBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,8 +22,6 @@ class ProcessCompletedFragment : Fragment() {
     }
 
     private fun setupUi(){
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_processCompletedFragment_to_homeScreenFragment)
-        }
+
     }
 }

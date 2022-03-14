@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sefiso.matlatlefuneralpalourapplication">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -12,10 +15,10 @@
         android:screenOrientation="portrait"
         android:theme="@style/SplashScreenStyle">
         <activity android:name="com.sefiso.matlatlefuneralpalourapplication.MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

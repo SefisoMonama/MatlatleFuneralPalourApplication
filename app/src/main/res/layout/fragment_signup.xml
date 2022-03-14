@@ -4,46 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:visibility="visible"
     tools:context=".Fragments.signup.SignupFragment">
 
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/contact_us_image"
-        app:layout_constraintBottom_toTopOf="@+id/welcome_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29000002"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/startSignUp_Button"
-        android:layout_width="347dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_shape"
-        android:text="Get started!"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcome_textView"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="Welcome to Matlatle application, let us help you register as a member, to get access to some of our best features!"
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/startSignUp_Button"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/signInEmail_Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_shape"
+        android:backgroundTint="@color/white"
+        android:drawableStart="@drawable/icons8_gmail_32"
+        android:elevation="20dp"
+        android:gravity="center|center"
+        android:paddingStart="32dp"
+        android:text="Sign in with Email"
+        android:textAllCaps="false"
+        android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />

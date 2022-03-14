@@ -1,4 +1,4 @@
-package com.sefiso.matlatlefuneralpalourapplication
+package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
+import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentAvailablePlansBinding
 
 class AvailablePlansFragment : Fragment() {
@@ -36,8 +36,6 @@ class AvailablePlansFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
-
-
     }
 
 }

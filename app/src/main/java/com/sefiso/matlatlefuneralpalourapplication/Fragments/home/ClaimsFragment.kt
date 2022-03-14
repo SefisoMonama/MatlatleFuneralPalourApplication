@@ -1,5 +1,6 @@
 package com.sefiso.matlatlefuneralpalourapplication.Fragments.home
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,6 +35,25 @@ class ClaimsFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callback)
+
+        binding.useSaIdSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+                binding.policyHolderTextInputLayout.hint = "Policyholder ID Number"
+            }else{
+                binding.policyHolderTextInputLayout.hint = "Policyholder passport Number"
+            }
+        }
+
+        binding.submitClaimButton.setOnClickListener {
+            dialog()
+        }
+    }
+
+    private fun dialog(){
+        val dialog = AlertDialog.Builder(context)
+        dialog.setPositiveButton("OK"){dialog, _ -> dialog.dismiss() }
+        dialog.setMessage("We acknowledge your request to claim. A service agent will contact you shortly.")
+        dialog.show()
     }
 
 }
