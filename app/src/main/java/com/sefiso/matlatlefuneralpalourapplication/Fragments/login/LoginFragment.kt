@@ -11,8 +11,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.sefiso.matlatlefuneralpalourapplication.R
 import com.sefiso.matlatlefuneralpalourapplication.databinding.FragmentLoginBinding
 import com.sefiso.matlatlefuneralpalourapplication.viewmodels.LoginViewModel
@@ -31,6 +35,7 @@ import java.util.TimeZone
 class LoginFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +44,9 @@ class LoginFragment : BottomSheetDialogFragment() {
 
     @SuppressLint("RestrictedApi")
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(layoutInflater)
@@ -62,13 +67,13 @@ class LoginFragment : BottomSheetDialogFragment() {
         }
 
         binding.signUpNowLinearLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_createUsernamePasswordFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
         underlineText(binding.forgotPasswordTextView, "Forgot Password?")
     }
 
-    private fun loginUser() {
+   fun loginUser() {
         val email = binding.editTextTextEmailAddress.text.toString().trim()
         val password = binding.editTextTextPassword.text.toString().trim()
 
@@ -86,40 +91,37 @@ class LoginFragment : BottomSheetDialogFragment() {
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.editTextTextEmailAddress.error = "Please provide valid email address 'E.G Matlatle@gmail.com'"
+            binding.editTextTextEmailAddress.error =
+                "Please provide valid email address 'E.G Matlatle@gmail.com'"
             binding.editTextTextEmailAddress.requestFocus()
             return
         }
 
         lifecycleScope.launch {
-            viewModel.signInWithEmailAndPassword(email, password)
-
-            viewModel.loginSuccessful.observe(viewLifecycleOwner) {
-                it?.let {
-                    if (it) {
-                        findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
-                    } else {
-                            showMessage("Couldn't authenticate")
-                            binding.errorTextView.visibility = View.VISIBLE
-                            binding.editTextTextPassword.text.clear()
-                    }
+            auth = Firebase.auth
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener { task ->
+                            launch {
+                                //showProgressBar(true)
+                                binding.progressBar.visibility = View.VISIBLE
+                                delay(3000)
+                                if (task.isSuccessful) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    val user = auth.currentUser
+                                    //showProgressBar(false)
+                                    binding.progressBar.visibility = View.GONE
+                                    findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
+                                } else {  
+                                    binding.progressBar.visibility = View.GONE
+                                    binding.errorTextView.visibility = View.VISIBLE
+                                    binding.editTextTextPassword.text.clear()
+                                    showMessage("Couldn't authenticate")
+                                }
+                            } 
+                        }
                 }
             }
 
-            delay(3000)
-
-            viewModel.showProgressBar.observe(viewLifecycleOwner) {
-                it?.let {
-                    if (it) {
-                        binding.progressBar.visibility = View.VISIBLE
-                    } else {
-                        binding.progressBar.visibility = View.GONE
-                    }
-
-                }
-            }
-        }
-    }
 
     //This function underline specified textView
     private fun underlineText(textView: TextView, text: String) {

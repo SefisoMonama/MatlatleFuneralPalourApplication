@@ -13,9 +13,11 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -26,7 +28,7 @@ import com.sefiso.matlatlefuneralpalourapplication.viewmodels.HomeScreenViewMode
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeScreenFragment : Fragment() {
+class HomeScreenFragment : Fragment(){
 
     private lateinit var binding: FragmentHomeScreenBinding
     private lateinit var database: DatabaseReference
@@ -35,6 +37,8 @@ class HomeScreenFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        var activity = getActivity()
+        var naDrawer = binding.drawerLayout
         viewModel = ViewModelProvider(requireActivity()).get(HomeScreenViewModel::class.java)
     }
 
@@ -66,9 +70,12 @@ class HomeScreenFragment : Fragment() {
         //navigate to the correct fragment when specific item id is selected on side drawer
         binding.menuItemsNavView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.products ->  findNavController().navigate(R.id.action_homeScreenFragment_to_productsFragment)
-                R.id.buyNow ->  findNavController().navigate(R.id.action_homeScreenFragment_to_availablePlansFragment)
-                R.id.contactUs ->  findNavController().navigate(R.id.action_homeScreenFragment_to_contactsFragment)
+                R.id.products ->
+                    requireFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_container, BillPaymentFragment()).commit()
+                R.id.buyNow ->
+                    requireFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_container, AvailablePlansFragment()).commit()
+                R.id.contactUs ->
+                    requireFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_container, ContactsFragment()).commit()
             }
             true
         }
@@ -214,6 +221,7 @@ class HomeScreenFragment : Fragment() {
             replace(R.id.nav_host_fragment_container, fragment)
             commit()
         }
+
 }
 
 

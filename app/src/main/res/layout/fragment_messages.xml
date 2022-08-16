@@ -44,4 +44,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noMessages_textView" />
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/claim_imageView"
+        android:layout_width="40dp"
+        android:layout_height="100dp"
+        android:src="@drawable/matlatlelogo"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,6 @@ class WelcomeFragment : Fragment() {
     private lateinit var binding : FragmentWelcomeBinding
     private lateinit var networkListener: NetworkListener
 
-    @ExperimentalCoroutinesApi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?
     ): View {

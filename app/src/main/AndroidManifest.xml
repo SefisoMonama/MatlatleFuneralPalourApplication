@@ -16,7 +16,8 @@
         android:theme="@style/SplashScreenStyle">
         <activity android:name="com.sefiso.matlatlefuneralpalourapplication.MainActivity"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

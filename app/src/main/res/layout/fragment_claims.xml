@@ -232,4 +232,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/trademark_imageView"
+        android:layout_width="40dp"
+        android:layout_height="100dp"
+        android:src="@drawable/matlatlelogo"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/submitClaim_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

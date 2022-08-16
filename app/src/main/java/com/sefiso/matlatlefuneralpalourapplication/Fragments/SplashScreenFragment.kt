@@ -34,6 +34,6 @@ class SplashScreenFragment : Fragment() {
 
          Handler().postDelayed(Runnable {
              findNavController().navigate(R.id.action_splashScreenFragment_to_welcomeFragment)
-         }, 4000)
+         }, 2000)
     }
 }

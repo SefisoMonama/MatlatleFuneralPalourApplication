@@ -6,27 +6,260 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.home.SettingsFragment">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Settings Fragment"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/settings_toolbar"
-        android:elevation="16dp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:elevation="16dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:subtitleTextColor="@color/black"
+        app:titleTextColor="@color/black" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/personalDetails_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:padding="16dp"
+        android:elevation="16dp"
+        android:background="@drawable/linear_layout_shape"
+        app:layout_constraintTop_toBottomOf="@id/settings_toolbar"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/personalImage_imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/s"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameSurname_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            android:text="Sefiso Monama"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/personalImage_imageView"
+            app:layout_constraintTop_toTopOf="@id/personalImage_imageView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit personal details"
+            android:padding="6dp"
+            app:layout_constraintStart_toStartOf="@id/nameSurname_textView"
+            app:layout_constraintTop_toBottomOf="@id/nameSurname_textView" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_visit_site"
+            app:layout_constraintBottom_toBottomOf="@+id/personalImage_imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/personalImage_imageView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintEnd_toEndOf="@id/personalDetails_constraintLayout"
+        app:layout_constraintStart_toStartOf="@id/personalDetails_constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/personalDetails_constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settings_toolBar">
+
+                <Switch
+                    android:id="@+id/darkMode_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:elevation="16dp"
+                    android:drawableStart="@drawable/half_moon"
+                    android:background="@drawable/linear_layout_shape"
+                    android:padding="12dp"
+                    android:text="Dark Mode"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <TextView
+                    android:id="@+id/profile_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:textSize="18sp"
+                    android:text="Profile"
+                    android:paddingStart="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/darkMode_switch"
+                    app:layout_constraintStart_toStartOf="@id/darkMode_switch"
+                    app:layout_constraintTop_toBottomOf="@id/darkMode_switch" />
+
+                <TextView
+                    android:id="@+id/edtProfile_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="32dp"
+                    android:elevation="16dp"
+                    android:background="@drawable/linear_layout_shape"
+                    android:padding="12dp"
+                    android:text="Edit Profile"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/profile_textView"
+                    app:layout_constraintStart_toStartOf="@id/profile_textView"
+                    app:layout_constraintTop_toBottomOf="@id/profile_textView"
+                    app:drawableStartCompat="@drawable/icons8_map_editing_30"
+                    app:drawableEndCompat="@drawable/ic_visit_site" />
+
+                <TextView
+                    android:id="@+id/changePassword_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="32dp"
+                    android:padding="12dp"
+                    android:elevation="16dp"
+                    android:background="@drawable/linear_layout_shape"
+                    android:text="Change Password"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/edtProfile_textView"
+                    app:layout_constraintStart_toStartOf="@id/edtProfile_textView"
+                    app:layout_constraintTop_toBottomOf="@id/edtProfile_textView"
+                    app:drawableStartCompat="@drawable/icons8_key_2_30"
+                    app:drawableEndCompat="@drawable/ic_visit_site" />
+
+                <TextView
+                    android:id="@+id/notifications_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Notifications"
+                    android:paddingStart="12dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/changePassword_textView"
+                    app:layout_constraintStart_toStartOf="@id/changePassword_textView"
+                     app:layout_constraintTop_toBottomOf="@id/changePassword_textView" />
+
+                <Switch
+                    android:id="@+id/enableNotification_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/icons8_alarm_30"
+                    android:drawablePadding="32dp"
+                    android:padding="12dp"
+                    android:elevation="16dp"
+                    android:background="@drawable/linear_layout_shape"
+                    android:text="Notifications"
+                    app:layout_constraintEnd_toEndOf="@id/notifications_textView"
+                    app:layout_constraintStart_toStartOf="@id/notifications_textView"
+                    app:layout_constraintTop_toBottomOf="@id/notifications_textView"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                <TextView
+                    android:id="@+id/about_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="About"
+                    android:paddingStart="12dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/enableNotification_switch"
+                    app:layout_constraintStart_toStartOf="@id/enableNotification_switch"
+                    app:layout_constraintTop_toBottomOf="@id/enableNotification_switch" />
+
+                <TextView
+                    android:id="@+id/aboutMatlatle_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="32dp"
+                    android:padding="12dp"
+                    android:text="About Matlatle"
+                    android:textStyle="bold"
+                    android:elevation="16dp"
+                    android:background="@drawable/linear_layout_shape"
+                    app:layout_constraintEnd_toEndOf="@id/about_textView"
+                    app:layout_constraintStart_toStartOf="@id/about_textView"
+                    app:layout_constraintTop_toBottomOf="@id/about_textView"
+                    app:drawableEndCompat="@drawable/ic_visit_site"
+                    app:drawableStartCompat="@drawable/icons8_help_30" />
+
+                 <Button
+                    android:id="@+id/logout_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/btn_shape"
+                    android:backgroundTint="@color/lightBlue"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawableEnd="@drawable/ic_visit_site"
+                    android:drawablePadding="32dp"
+                    android:padding="12dp"
+                    android:text="LOGOUT"
+                    android:drawableTint="@color/white"
+                    android:layout_marginBottom="24dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/aboutMatlatle_textView"
+                    app:layout_constraintStart_toStartOf="@id/aboutMatlatle_textView"
+                    app:layout_constraintTop_toBottomOf="@id/aboutMatlatle_textView"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/claim_imageView"
+        android:layout_width="40dp"
+        android:layout_height="100dp"
+        android:src="@drawable/matlatlelogo"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
